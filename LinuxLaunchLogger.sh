@@ -1,0 +1,1 @@
+./build_linux/logger /dev/pts/2

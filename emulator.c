@@ -1,8 +1,7 @@
 /*
 На windows эмулируем работу портов с помощью com0com
+На linux с помощью socat -d -d pty,raw,echo=0 pty,raw,echo=0
 */
-
-#define _USE_MATH_DEFINES // для числа пи
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +12,10 @@
     #include <windows.h>
 #else
     #include <unistd.h>
+    #include <fcntl.h>
 #endif
+
+#define M_PI 3.14159265358979
 
 #ifdef _WIN32
     #define sleep_ms(ms) Sleep(ms)

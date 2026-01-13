@@ -1,0 +1,1 @@
+/usr/bin/gcc    CMakeFiles/logger.dir/logger.c.o  -o logger 

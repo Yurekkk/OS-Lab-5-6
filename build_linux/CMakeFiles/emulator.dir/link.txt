@@ -1,0 +1,1 @@
+/usr/bin/gcc    CMakeFiles/emulator.dir/emulator.c.o  -o emulator  -lm 

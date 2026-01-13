@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/knight5016/OS/OS-Lab-4/emulator.c
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+math.h
+-
+windows.h
+-
+unistd.h
+-
+fcntl.h
+-
+

@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "logger.exe"
-		},
-		{
-			"path" : "logger.pdb"
+			"path" : "emulator"
 		}
 	],
 	"backtrace" : 1,
@@ -27,19 +24,20 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 8,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
 	},
-	"codemodelVersion" : 
-	{
-		"major" : 2,
-		"minor" : 9
-	},
 	"compileGroups" : 
 	[
 		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g  "
+				}
+			],
 			"language" : "C",
 			"sourceIndexes" : 
 			[
@@ -47,20 +45,28 @@
 			]
 		}
 	],
-	"id" : "logger::@6890427a1f51a3e7e1df",
+	"id" : "emulator::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-lm",
 				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
-	"name" : "logger",
-	"nameOnDisk" : "logger.exe",
+	"name" : "emulator",
+	"nameOnDisk" : "emulator",
 	"paths" : 
 	{
 		"build" : ".",
@@ -81,7 +87,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "logger.c",
+			"path" : "emulator.c",
 			"sourceGroupIndex" : 0
 		}
 	],

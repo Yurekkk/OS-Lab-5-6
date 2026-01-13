@@ -2,12 +2,10 @@
 	"configurations" : 
 	[
 		{
-			"abstractTargets" : [],
 			"directories" : 
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-f6f22219c74102c3da70.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -21,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -42,14 +40,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "emulator::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-emulator-435978fa6f1156956e8c.json",
+					"jsonFile" : "target-emulator-Debug-74715c09c6ca8738519e.json",
 					"name" : "emulator",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "logger::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-logger-ba2f0f835cf53e56f900.json",
+					"jsonFile" : "target-logger-Debug-491fcebe59ac6b617216.json",
 					"name" : "logger",
 					"projectIndex" : 0
 				}
@@ -59,12 +57,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/OS/Lab-4/build",
-		"source" : "D:/OS/Lab-4"
+		"build" : "/home/knight5016/OS/OS-Lab-4/build",
+		"source" : "/home/knight5016/OS/OS-Lab-4"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 9
+		"minor" : 0
 	}
 }

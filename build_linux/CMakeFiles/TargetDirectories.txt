@@ -1,0 +1,4 @@
+/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/rebuild_cache.dir
+/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/edit_cache.dir
+/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/emulator.dir
+/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/logger.dir

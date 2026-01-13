@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/knight5016/OS/OS-Lab-4/build",
+  "command": "/usr/bin/gcc   -g   -o CMakeFiles/emulator.dir/emulator.c.o   -c /home/knight5016/OS/OS-Lab-4/emulator.c",
+  "file": "/home/knight5016/OS/OS-Lab-4/emulator.c"
+},
+{
+  "directory": "/home/knight5016/OS/OS-Lab-4/build",
+  "command": "/usr/bin/gcc   -g   -o CMakeFiles/logger.dir/logger.c.o   -c /home/knight5016/OS/OS-Lab-4/logger.c",
+  "file": "/home/knight5016/OS/OS-Lab-4/logger.c"
+}
+]
