@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/OS/Lab-4/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\logger.dir\\logger.c.obj -c D:\\OS\\Lab-4\\logger.c",
+  "file": "D:/OS/Lab-4/logger.c",
+  "output": "CMakeFiles/logger.dir/logger.c.obj"
+},
+{
+  "directory": "D:/OS/Lab-4/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\emulator.dir\\emulator.c.obj -c D:\\OS\\Lab-4\\emulator.c",
+  "file": "D:/OS/Lab-4/emulator.c",
+  "output": "CMakeFiles/emulator.dir/emulator.c.obj"
+}
+]
