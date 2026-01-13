@@ -1,0 +1,1 @@
+build\logger.exe \\\\.\\COM11

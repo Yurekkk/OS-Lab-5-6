@@ -1,3 +1,7 @@
+/*
+На windows эмулируем работу портов с помощью com0com
+*/
+
 #define _USE_MATH_DEFINES // для числа пи
 
 #include <stdio.h>

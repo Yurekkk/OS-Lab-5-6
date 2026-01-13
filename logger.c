@@ -229,7 +229,6 @@ int main(int argc, char** argv) {
 
         // Проверяем смену дня
         if (now - last_day_log_t >= 86400) {
-            if (daily_count == 0) return;
             double daily_avg = daily_sum / daily_count;
             log_t(DAILY_LOG_FILE, daily_avg);
             trim_daily_log();
