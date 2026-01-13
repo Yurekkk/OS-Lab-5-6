@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-// #include <math.h>
 
 #ifdef _WIN32
     #include <windows.h>
@@ -12,6 +11,19 @@
     #include <unistd.h>
     #include <fcntl.h>
     // #include <termios.h>
+#endif
+
+
+
+#ifdef _WIN32
+    #define sleep_ms(ms) Sleep(ms)
+#else // POSIX
+    static inline void sleep_ms(unsigned long ms) {
+        struct timespec ts;
+        ts.tv_sec = ms / 1000;
+        ts.tv_nsec = (ms % 1000) * 1000000;
+        nanosleep(&ts, NULL);
+    }
 #endif
 
 
@@ -64,7 +76,9 @@ FILE* open_serial_port(char* port_name) {
     }
 
     // Превращаем Windows-дескриптор (HANDLE) в POSIX-дескриптор (int), а затем в FILE*
-    return _fdopen(_open_osfhandle((intptr_t)hPort, _O_RDONLY), "r");
+    FILE* fp = _fdopen(_open_osfhandle((intptr_t)hPort, _O_RDONLY), "r");
+    setvbuf(fp, NULL, _IONBF, 0); // Отключить буферизацию
+    return fp;
 
 #else // POSIX
 
@@ -98,9 +112,23 @@ void log_t(char* file_name, double temp) {
         return;
     }
     char* time_str = get_time_str();
-    fprintf(f, "[%s] T: %.2f\n", time_str, temp);
+    fprintf(f, "[%s] t: %.2f\n", time_str, temp);
     free(time_str);
     fclose(f);
+}
+
+void write_temp_to_orig(FILE* temp, const char* orig_name) {
+    // Перематываем временный файл в начало для чтения
+    rewind(temp);
+
+    // Копируем всё из temp в orig
+    FILE* orig = fopen(orig_name, "w");
+    char buffer[128];
+    while (fgets(buffer, sizeof(buffer), temp))
+        fputs(buffer, orig);
+
+    fclose(orig);
+    fclose(temp); // временный файл автоматически удаляется
 }
 
 void trim_general_log() {
@@ -115,10 +143,11 @@ void trim_general_log() {
         // Находим в строке время
         char* start = strchr(line, '[');
         char* end = strchr(line, ']');
+        if (!start || !end) continue;
         int len = end - start;
 
         char time_str[TIME_STR_SIZE];
-        strncpy(time_str, start, len);
+        strncpy(time_str, start+1, len);
         time_str[len] = '\0';
 
         // Конвертим строку времени в целое число
@@ -128,10 +157,7 @@ void trim_general_log() {
             fputs(line, temp);
     }
     fclose(orig);
-
-    // Перезаписываем файл
-    FILE* newf = freopen(ALL_LOG_FILE, "w", temp);
-    fclose(newf);
+    write_temp_to_orig(temp, ALL_LOG_FILE);
 }
 
 void trim_hourly_log() {
@@ -149,7 +175,7 @@ void trim_hourly_log() {
         int len = end - start;
 
         char time_str[TIME_STR_SIZE];
-        strncpy(time_str, start, len);
+        strncpy(time_str, start+1, len);
         time_str[len] = '\0';
 
         // Конвертим строку времени в целое число
@@ -159,10 +185,8 @@ void trim_hourly_log() {
             fputs(line, temp);
     }
     fclose(orig);
+    write_temp_to_orig(temp, HOURLY_LOG_FILE);
 
-    // Перезаписываем файл
-    FILE* newf = freopen(HOURLY_LOG_FILE, "w", temp);
-    fclose(newf);
 }
 
 void trim_daily_log() {
@@ -171,20 +195,17 @@ void trim_daily_log() {
     int year_now = tm_now->tm_year + 1900;
 
     FILE* temp = tmpfile();
-    FILE* orig = fopen(HOURLY_LOG_FILE, "r");
+    FILE* orig = fopen(DAILY_LOG_FILE, "r");
 
     char line[128];
     while (fgets(line, sizeof(line), orig)) {
         int written_year;
-        sscanf(line, "%lf", &written_year);
+        sscanf(line, "[%d-", &written_year);
         if (written_year == year_now)
             fputs(line, temp);
     }
     fclose(orig);
-
-    // Перезаписываем файл
-    FILE* newf = freopen(HOURLY_LOG_FILE, "w", temp);
-    fclose(newf);
+    write_temp_to_orig(temp, DAILY_LOG_FILE);
 }
 
 
@@ -201,9 +222,12 @@ int main(int argc, char** argv) {
     time_t last_day_log_t = time(NULL);
 
     char buffer[32];
-    while (fgets(buffer, sizeof(buffer), port)) {
+    while (1) {
         double temp;
-        if (sscanf(buffer, "%lf", &temp) != 1) continue;
+
+        fgets(buffer, sizeof(buffer), port);
+        sscanf(buffer, "%lf", &temp);
+        printf("Received: %.2f\n", temp);
 
         time_t now = time(NULL);
 
@@ -237,6 +261,8 @@ int main(int argc, char** argv) {
             daily_count = 0;
             last_day_log_t = now;
         }
+
+        sleep_ms(1000);
     }
 
     fclose(port);

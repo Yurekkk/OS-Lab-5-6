@@ -31,26 +31,45 @@
 int main(int argc, char** argv) {
     srand(time(NULL));
 
-    // Открываем порт для записи
-    FILE* port = fopen(argv[1], "w");
+#ifdef _WIN32
+    HANDLE port = CreateFileA(argv[1], GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
     if (!port) {
-        perror("Не удалось открыть порт");
+        perror("Couldn't open the port.\n");
         return 1;
     }
+#else // POSIX
+    int port = open(argv[1], O_WRONLY | O_NOCTTY);
+    if (port < 0) {
+        perror("Couldn't open the port.\n");
+        return 1;
+    }
+#endif
 
     while (1) {
         time_t now = time(NULL);
         // Генерируем температуру как синусоиду с периодом 86400
         // со случайными девиациями в пределах половины градуса
         double temp = 10 + 5 * sin(M_PI * now / 86400) +
-            ((double) (rand() % 100) / 10.0 - 0.5);
+            ((double) (rand() % 101) / 100 - 0.5);
+        char buffer[8];
+        int len = snprintf(buffer, sizeof(buffer), "%.2f\n", temp);
 
-        fprintf(port, "%.2f\n", temp);
-        fflush(port); // Сразу отправляем данные
-        printf("Отправлено: %.2f\n", temp);
+#ifdef _WIN32
+        DWORD bytesWritten;
+        WriteFile(port, buffer, len, &bytesWritten, NULL);
+#else // POSIX
+        write(port, buffer, len);
+#endif
+
+        printf("Sent: %.2f\n", temp);
         sleep_ms(1000); // Пауза 1 секунда
     }
 
-    fclose(port);
+#ifdef _WIN32
+    CloseHandle(port);
+#else // POSIX
+    close(port);
+#endif
+
     return 0;
 }

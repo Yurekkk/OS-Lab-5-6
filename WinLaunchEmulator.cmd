@@ -1,1 +1,1 @@
-build\emulator.exe \\\\.\\COM10
+build\emulator.exe \\.\CNCA0

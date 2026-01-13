@@ -1,1 +1,1 @@
-build\logger.exe \\\\.\\COM11
+build\logger.exe \\.\CNCB0
