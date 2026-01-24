@@ -1,12 +1,14 @@
 [
 {
-  "directory": "/home/knight5016/OS/OS-Lab-4/build",
-  "command": "/usr/bin/gcc   -g   -o CMakeFiles/emulator.dir/emulator.c.o   -c /home/knight5016/OS/OS-Lab-4/emulator.c",
-  "file": "/home/knight5016/OS/OS-Lab-4/emulator.c"
+  "directory": "D:/OS/Lab-5-6/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\G__~1.EXE   -g -std=gnu++17 -o CMakeFiles\\logger.dir\\logger.cpp.obj -c D:\\OS\\Lab-5-6\\logger.cpp",
+  "file": "D:/OS/Lab-5-6/logger.cpp",
+  "output": "CMakeFiles/logger.dir/logger.cpp.obj"
 },
 {
-  "directory": "/home/knight5016/OS/OS-Lab-4/build",
-  "command": "/usr/bin/gcc   -g   -o CMakeFiles/logger.dir/logger.c.o   -c /home/knight5016/OS/OS-Lab-4/logger.c",
-  "file": "/home/knight5016/OS/OS-Lab-4/logger.c"
+  "directory": "D:/OS/Lab-5-6/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\emulator.dir\\emulator.c.obj -c D:\\OS\\Lab-5-6\\emulator.c",
+  "file": "D:/OS/Lab-5-6/emulator.c",
+  "output": "CMakeFiles/emulator.dir/emulator.c.obj"
 }
 ]

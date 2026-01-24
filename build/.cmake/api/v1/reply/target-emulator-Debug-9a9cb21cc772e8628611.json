@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "emulator"
+			"path" : "emulator.exe"
+		},
+		{
+			"path" : "emulator.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -10,7 +13,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_executable",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -26,8 +30,19 @@
 				"file" : 0,
 				"line" : 9,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
 			}
 		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
 	},
 	"compileGroups" : 
 	[
@@ -35,7 +50,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g  "
+					"fragment" : "-g"
 				}
 			],
 			"language" : "C",
@@ -55,18 +70,26 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "",
-				"role" : "flags"
+				"backtrace" : 2,
+				"fragment" : "-lm",
+				"role" : "libraries"
 			},
 			{
-				"fragment" : "-lm",
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
 				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"fragment" : "m"
+		}
+	],
 	"name" : "emulator",
-	"nameOnDisk" : "emulator",
+	"nameOnDisk" : "emulator.exe",
 	"paths" : 
 	{
 		"build" : ".",
