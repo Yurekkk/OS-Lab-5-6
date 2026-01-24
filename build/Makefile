@@ -116,6 +116,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named sqlite3
+
+# Build rule for target.
+sqlite3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 sqlite3
+.PHONY : sqlite3
+
+# fast build rule for target.
+sqlite3/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sqlite3.dir\build.make CMakeFiles/sqlite3.dir/build
+.PHONY : sqlite3/fast
+
+#=============================================================================
 # Target rules for targets named logger
 
 # Build rule for target.
@@ -165,6 +178,30 @@ emulator.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\emulator.dir\build.make CMakeFiles/emulator.dir/emulator.c.s
 .PHONY : emulator.c.s
 
+libs/sqlite3.obj: libs/sqlite3.c.obj
+.PHONY : libs/sqlite3.obj
+
+# target to build an object file
+libs/sqlite3.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sqlite3.dir\build.make CMakeFiles/sqlite3.dir/libs/sqlite3.c.obj
+.PHONY : libs/sqlite3.c.obj
+
+libs/sqlite3.i: libs/sqlite3.c.i
+.PHONY : libs/sqlite3.i
+
+# target to preprocess a source file
+libs/sqlite3.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sqlite3.dir\build.make CMakeFiles/sqlite3.dir/libs/sqlite3.c.i
+.PHONY : libs/sqlite3.c.i
+
+libs/sqlite3.s: libs/sqlite3.c.s
+.PHONY : libs/sqlite3.s
+
+# target to generate assembly for a file
+libs/sqlite3.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sqlite3.dir\build.make CMakeFiles/sqlite3.dir/libs/sqlite3.c.s
+.PHONY : libs/sqlite3.c.s
+
 logger.obj: logger.cpp.obj
 .PHONY : logger.obj
 
@@ -199,9 +236,13 @@ help:
 	@echo ... rebuild_cache
 	@echo ... emulator
 	@echo ... logger
+	@echo ... sqlite3
 	@echo ... emulator.obj
 	@echo ... emulator.i
 	@echo ... emulator.s
+	@echo ... libs/sqlite3.obj
+	@echo ... libs/sqlite3.i
+	@echo ... libs/sqlite3.s
 	@echo ... logger.obj
 	@echo ... logger.i
 	@echo ... logger.s

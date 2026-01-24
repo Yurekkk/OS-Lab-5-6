@@ -62,11 +62,13 @@ CMAKE_BINARY_DIR = D:\OS\Lab-5-6\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/sqlite3.dir/all
 all: CMakeFiles/logger.dir/all
 all: CMakeFiles/emulator.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
+codegen: CMakeFiles/sqlite3.dir/codegen
 codegen: CMakeFiles/logger.dir/codegen
 codegen: CMakeFiles/emulator.dir/codegen
 .PHONY : codegen
@@ -76,15 +78,48 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/sqlite3.dir/clean
 clean: CMakeFiles/logger.dir/clean
 clean: CMakeFiles/emulator.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/sqlite3.dir
+
+# All Build rule for target.
+CMakeFiles/sqlite3.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sqlite3.dir\build.make CMakeFiles/sqlite3.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sqlite3.dir\build.make CMakeFiles/sqlite3.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=5,6 "Built target sqlite3"
+.PHONY : CMakeFiles/sqlite3.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/sqlite3.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\OS\Lab-5-6\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/sqlite3.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\OS\Lab-5-6\build\CMakeFiles 0
+.PHONY : CMakeFiles/sqlite3.dir/rule
+
+# Convenience name for target.
+sqlite3: CMakeFiles/sqlite3.dir/rule
+.PHONY : sqlite3
+
+# codegen rule for target.
+CMakeFiles/sqlite3.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sqlite3.dir\build.make CMakeFiles/sqlite3.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=5,6 "Finished codegen for target sqlite3"
+.PHONY : CMakeFiles/sqlite3.dir/codegen
+
+# clean rule for target.
+CMakeFiles/sqlite3.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sqlite3.dir\build.make CMakeFiles/sqlite3.dir/clean
+.PHONY : CMakeFiles/sqlite3.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/logger.dir
 
 # All Build rule for target.
-CMakeFiles/logger.dir/all:
+CMakeFiles/logger.dir/all: CMakeFiles/sqlite3.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\logger.dir\build.make CMakeFiles/logger.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\logger.dir\build.make CMakeFiles/logger.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=3,4 "Built target logger"
@@ -92,7 +127,7 @@ CMakeFiles/logger.dir/all:
 
 # Build rule for subdir invocation for target.
 CMakeFiles/logger.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\OS\Lab-5-6\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\OS\Lab-5-6\build\CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/logger.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\OS\Lab-5-6\build\CMakeFiles 0
 .PHONY : CMakeFiles/logger.dir/rule

@@ -1,3 +1,10 @@
+#define _WIN32_WINNT 0x0A00
+// TODO
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -98,77 +105,129 @@ void log_temperature(sqlite3* db, double temp) {
     sqlite3_finalize(stmt); // освобождает ресурсы, связанные с подготовленным запросом.
 }
 
+void get_current(httplib::Response& res, sqlite3* db) {
+    // Обработчик: текущая температура
+    sqlite3_stmt* stmt;
+    const char* sql = "SELECT temperature FROM temps ORDER BY timestamp DESC LIMIT 1";
+    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+
+    double last_temp = 0.0;
+    bool found = false;
+
+    if (rc == SQLITE_OK) {
+        if (sqlite3_step(stmt) == SQLITE_ROW) {
+            last_temp = sqlite3_column_double(stmt, 0);
+            found = true;
+        }
+    }
+
+    sqlite3_finalize(stmt);
+
+    if (found) {
+        std::string json = "{\"temperature\":" + std::to_string(last_temp) + "}";
+        res.set_content(json, "application/json");
+    } else {
+        res.status = 404;
+        res.set_content("{\"error\":\"No data available\"}", "application/json");
+    }
+}
+
+void get_average(const httplib::Request& req, httplib::Response& res, sqlite3* db) {
+    // Обработчик: среднее за период
+    std::string start = req.get_param_value("start");
+    std::string end = req.get_param_value("end");
+
+    // Проверка формата даты (ISO 8601: YYYY-MM-DDTHH:MM[:SS])
+    if (start.empty() || end.empty()) {
+        res.status = 400;
+        res.set_content("{\"error\":\"Wrong 'start' or 'end' parameter\"}", "application/json");
+        return;
+    }
+
+    sqlite3_stmt* stmt;
+    const char* sql = "SELECT AVG(temperature) FROM temps WHERE timestamp BETWEEN ? AND ?";
+    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+
+    sqlite3_bind_text(stmt, 1, start.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, end.c_str(), -1, SQLITE_STATIC);
+
+    double avg_temp = 0.0;
+    bool found = false;
+
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        if (sqlite3_column_type(stmt, 0) != SQLITE_NULL) {
+            avg_temp = sqlite3_column_double(stmt, 0);
+            found = true;
+        }
+    }
+
+    sqlite3_finalize(stmt);
+
+    if (found) {
+        std::string json = "{\"temperature\":" + std::to_string(avg_temp) + "}";
+        res.set_content(json, "application/json");
+    } else {
+        res.status = 404;
+        res.set_content("{\"error\":\"No data available\"}", "application/json");
+    }
+}
+// TODO
+void get_history(const httplib::Request& req, httplib::Response& res, sqlite3* db) {
+    // Обработчик: все измерения за период
+    std::string start = req.get_param_value("start");
+    std::string end = req.get_param_value("end");
+
+    if (start.empty() || end.empty()) {
+        res.status = 400;
+        res.set_content("{\"error\":\"Missing 'start' or 'end' parameter\"}", "application/json");
+        return;
+    }
+
+    sqlite3_stmt* stmt;
+    const char* sql = "SELECT timestamp, temperature FROM temps WHERE timestamp BETWEEN ? AND ? ORDER BY timestamp";
+    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+    if (rc != SQLITE_OK) {
+        res.status = 500;
+        res.set_content("{\"error\":\"Database query failed\"}", "application/json");
+        return;
+    }
+
+    sqlite3_bind_text(stmt, 1, start.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, end.c_str(), -1, SQLITE_STATIC);
+
+    std::ostringstream json;
+    json << "[";
+    bool first = true;
+
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        const char* ts = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+        double temp = sqlite3_column_double(stmt, 1);
+
+        if (!first) json << ",";
+        json << "{\"timestamp\":\"" << ts << "\",\"temperature\":" << temp << "}";
+        first = false;
+    }
+
+    json << "]";
+
+    sqlite3_finalize(stmt);
+
+    res.set_content(json.str(), "application/json");
+}
+
 void start_server(sqlite3* db) {
     // HTTP-сервер
     using namespace httplib;
     Server server;
 
     // Обработчик: текущая температура
-    server.Get("/current", [&](const Request&, Response& res) {
-        sqlite3_stmt* stmt;
-        const char* sql = "SELECT temperature FROM temps ORDER BY timestamp DESC LIMIT 1";
-        int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+    server.Get("/current", [&](const Request&, Response& res) {get_current(res, db);});
 
-        double last_temp = 0.0;
-        bool found = false;
+    // Обработчик: среднее за период
+    server.Get("/average", [&](const Request& req, Response& res) {get_average(req, res, db);});
 
-        if (rc == SQLITE_OK) {
-            if (sqlite3_step(stmt) == SQLITE_ROW) {
-                last_temp = sqlite3_column_double(stmt, 0);
-                found = true;
-            }
-        }
-
-        sqlite3_finalize(stmt);
-
-        if (found) {
-            std::string json = "{\"value\":" + std::to_string(last_temp) + "}";
-            res.set_content(json, "application/json");
-        } else {
-            res.status = 404;
-            res.set_content("{\"error\":\"No data available\"}", "application/json");
-        }
-    });
-
-    // Обработчик: статистика за период
-    server.Get("/average", [&](const Request& req, Response& res) {
-        std::string start = req.get_param_value("start");
-        std::string end = req.get_param_value("end");
-
-        // Проверка формата даты (ISO 8601: YYYY-MM-DDTHH:MM[:SS])
-        if (start.empty() || end.empty()) {
-            res.status = 400;
-            res.set_content("{\"error\":\"Wrong 'start' or 'end' parameter\"}", "application/json");
-            return;
-        }
-
-        sqlite3_stmt* stmt;
-        const char* sql = "SELECT AVG(temperature) FROM temps WHERE timestamp BETWEEN ? AND ?";
-        int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
-
-        sqlite3_bind_text(stmt, 1, start.c_str(), -1, SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 2, end.c_str(), -1, SQLITE_STATIC);
-
-        double avg_temp = 0.0;
-        bool found = false;
-
-        if (sqlite3_step(stmt) == SQLITE_ROW) {
-            if (sqlite3_column_type(stmt, 0) != SQLITE_NULL) {
-                avg_temp = sqlite3_column_double(stmt, 0);
-                found = true;
-            }
-        }
-
-        sqlite3_finalize(stmt);
-
-        if (found) {
-            std::string json = "{\"value\":" + std::to_string(avg_temp) + "}";
-            res.set_content(json, "application/json");
-        } else {
-            res.status = 404;
-            res.set_content("{\"error\":\"No data available\"}", "application/json");
-        }
-    });
+    // Обработчик: все измерения за период
+    server.Get("/history", [&](const Request& req, Response& res) {get_history(req, res, db);});
 
     // Отдача статики (веб-интерфейс)
     server.set_base_dir("./web");

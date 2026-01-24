@@ -1,14 +1,20 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
     <title>Temperature Monitor</title>
+    <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div>
-        <h1>Current: <span id="current">--</span> °C</h1>
+    <div id="mainDiv">
+        <div id="currTempText">Текущая температура: <span id="current"></span>°C</div>
         <canvas id="tempChart"></canvas>
+        <script src="chart.js"></script>
     </div>
-    <script src="chart.js"></script>
 </body>
+
 </html>

@@ -72,6 +72,7 @@ CMakeFiles/emulator.dir/codegen:
 .PHONY : CMakeFiles/emulator.dir/codegen
 
 CMakeFiles/emulator.dir/emulator.c.obj: CMakeFiles/emulator.dir/flags.make
+CMakeFiles/emulator.dir/emulator.c.obj: CMakeFiles/emulator.dir/includes_C.rsp
 CMakeFiles/emulator.dir/emulator.c.obj: D:/OS/Lab-5-6/emulator.c
 CMakeFiles/emulator.dir/emulator.c.obj: CMakeFiles/emulator.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/emulator.dir/emulator.c.obj"

@@ -1,3 +1,4 @@
+D:/OS/Lab-5-6/build/CMakeFiles/sqlite3.dir
 D:/OS/Lab-5-6/build/CMakeFiles/logger.dir
 D:/OS/Lab-5-6/build/CMakeFiles/emulator.dir
 D:/OS/Lab-5-6/build/CMakeFiles/edit_cache.dir

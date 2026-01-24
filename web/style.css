@@ -1,0 +1,30 @@
+body {
+    background-color: #0f172a;
+    color: #cbd5e1;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#currTempText {
+    font-size: 64px;
+    font-weight: bold;
+    margin: 5%;
+    text-align: center;
+}
+
+#current {
+    color: #60a5fa;
+}
+
+#tempChart {
+    height: 50%;
+    background-color: #1e293b;
+    border-radius: 8px;
+}
+
+#mainDiv {
+    width: 90%;
+    height: 50%;
+}
