@@ -1,6 +1,82 @@
-// TODO
+const ticks_size = 16;
+const labels_size = 20;
+const ticks_color = "#CBD5E1";
+const line_color = "#3FAFE8";
+const padding = 30;
 
-// === 1. Функция для обновления текущей температуры ===
+// Инициализация графика
+const ctx = document.getElementById('tempChart').getContext('2d');
+const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Температура (°C)',
+            data: [],
+            borderColor: line_color
+        }]
+    },
+    
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+
+        layout: {
+            padding: {
+                left: padding,
+                right: padding,
+                top: padding,
+                bottom: padding
+            }
+        },
+
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Время',
+                    color: ticks_color,
+                    font: {
+                        size: labels_size,
+                        weight: 'bold'
+                    }
+                },
+                ticks: {
+                    color: ticks_color,
+                    font: {
+                        size: ticks_size
+                    }
+                }
+            },
+
+            y: {
+                title: {
+                    display: true,
+                    text: 'Температура (°C)',
+                    color: ticks_color,
+                    font: {
+                        size: labels_size,
+                        weight: 'bold'
+                    }
+                },
+                ticks: {
+                    color: ticks_color,
+                    font: {
+                        size: ticks_size
+                    }
+                }
+            }
+        },
+
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+});
+
+// Обновление текущей температуры
 function updateCurrentTemp() {
     fetch('/current')
         .then(res => {
@@ -12,54 +88,13 @@ function updateCurrentTemp() {
         })
         .catch(err => {
             console.error('Error fetching current temperature:', err);
-            document.getElementById('current').textContent = '—';
+            document.getElementById('current').textContent = '--.--';
         });
 }
 
-// Запускаем сразу и затем каждую секунду
-updateCurrentTemp();
-setInterval(updateCurrentTemp, 1000);
-
-// === 2. Инициализация графика ===
-const ctx = document.getElementById('tempChart').getContext('2d');
-const chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Температура (°C)',
-            data: [],
-            borderColor: 'rgb(76, 103, 213)',
-            tension: 0.1,
-            fill: false
-        }]
-    },
-    options: {
-        // scales: {
-        //     x: {
-        //         title: {
-        //             display: true,
-        //             text: 'Время'
-        //         }
-        //     },
-        //     y: {
-        //         title: {
-        //             display: true,
-        //             text: 'Температура (°C)'
-        //         }
-        //     }
-        // },
-        plugins: {
-            legend: {
-                display: false
-            }
-        }
-    }
-});
-
-// === 3. Функция для загрузки данных за последний час ===
+// Загрузка данных за последнюю минуту
 function fetchDataLastMinute() {
-    // Форматируем временные метки в ISO 8601 без 'T' (лучше совместимость с SQLite)
+    // Форматируем временные метки в ISO 8601
     const now = new Date();
     const oneMinuteAgo = new Date(now.getTime() - 60 * 1000);
 
@@ -84,7 +119,7 @@ function fetchDataLastMinute() {
         });
 }
 
-// === Запрос текущей температуры и обновление графика ===
+// Запрос текущей температуры и обновление графика
 function fetchAndAddPoint() {
     fetch('/current')
         .then(res => {
@@ -109,6 +144,10 @@ function fetchAndAddPoint() {
         });   
 }
 
-// Загружаем данные сразу и потом обновляем каждые 1 секунд
+// Запускаем сразу и затем каждую секунду
+updateCurrentTemp();
+setInterval(updateCurrentTemp, 1000);
+
+// Загружаем данные сразу и потом обновляем каждую секунду
 fetchDataLastMinute();
 setInterval(fetchAndAddPoint, 1000);

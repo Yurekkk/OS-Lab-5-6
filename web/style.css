@@ -1,10 +1,17 @@
+html {
+    width: 99%;
+    height: 99%;
+}
+
 body {
-    background-color: #0f172a;
-    color: #cbd5e1;
-    font-family: Arial, sans-serif;
+    background-color: #202B2F;
+    color: #CBD5E1;
+    font-family: monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 #currTempText {
@@ -15,16 +22,15 @@ body {
 }
 
 #current {
-    color: #60a5fa;
+    color: #3FAFE8;
 }
 
 #tempChart {
-    height: 50%;
-    background-color: #1e293b;
+    background-color: #343E42;
     border-radius: 8px;
 }
 
 #mainDiv {
-    width: 90%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
 }

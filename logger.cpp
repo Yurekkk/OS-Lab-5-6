@@ -1,10 +1,5 @@
 #define _WIN32_WINNT 0x0A00
-// TODO
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
 #include <winsock2.h>
-#include <ws2tcpip.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -111,69 +106,33 @@ void get_current(httplib::Response& res, sqlite3* db) {
     const char* sql = "SELECT temperature FROM temps ORDER BY timestamp DESC LIMIT 1";
     int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
 
-    double last_temp = 0.0;
-    bool found = false;
-
-    if (rc == SQLITE_OK) {
-        if (sqlite3_step(stmt) == SQLITE_ROW) {
-            last_temp = sqlite3_column_double(stmt, 0);
-            found = true;
-        }
+    if (rc != SQLITE_OK) {
+        res.status = 500;
+        res.set_content("{\"error\":\"Database query failed\"}", "application/json");
+        return;
     }
 
-    sqlite3_finalize(stmt);
+    int result = sqlite3_step(stmt);
 
-    if (found) {
-        std::string json = "{\"temperature\":" + std::to_string(last_temp) + "}";
-        res.set_content(json, "application/json");
-    } else {
+    if (result == SQLITE_DONE) {
         res.status = 404;
         res.set_content("{\"error\":\"No data available\"}", "application/json");
     }
+    else if (result == SQLITE_ROW) {
+        double last_temp = sqlite3_column_double(stmt, 0);
+        std::string json = "{\"temperature\":" + std::to_string(last_temp) + "}";
+        res.set_content(json, "application/json");
+    }
+    else {
+        res.status = 500;
+        res.set_content("{\"error\":\"Database query failed\"}", "application/json");
+    }
+
+    sqlite3_finalize(stmt);
 }
 
 void get_average(const httplib::Request& req, httplib::Response& res, sqlite3* db) {
     // Обработчик: среднее за период
-    std::string start = req.get_param_value("start");
-    std::string end = req.get_param_value("end");
-
-    // Проверка формата даты (ISO 8601: YYYY-MM-DDTHH:MM[:SS])
-    if (start.empty() || end.empty()) {
-        res.status = 400;
-        res.set_content("{\"error\":\"Wrong 'start' or 'end' parameter\"}", "application/json");
-        return;
-    }
-
-    sqlite3_stmt* stmt;
-    const char* sql = "SELECT AVG(temperature) FROM temps WHERE timestamp BETWEEN ? AND ?";
-    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
-
-    sqlite3_bind_text(stmt, 1, start.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, end.c_str(), -1, SQLITE_STATIC);
-
-    double avg_temp = 0.0;
-    bool found = false;
-
-    if (sqlite3_step(stmt) == SQLITE_ROW) {
-        if (sqlite3_column_type(stmt, 0) != SQLITE_NULL) {
-            avg_temp = sqlite3_column_double(stmt, 0);
-            found = true;
-        }
-    }
-
-    sqlite3_finalize(stmt);
-
-    if (found) {
-        std::string json = "{\"temperature\":" + std::to_string(avg_temp) + "}";
-        res.set_content(json, "application/json");
-    } else {
-        res.status = 404;
-        res.set_content("{\"error\":\"No data available\"}", "application/json");
-    }
-}
-// TODO
-void get_history(const httplib::Request& req, httplib::Response& res, sqlite3* db) {
-    // Обработчик: все измерения за период
     std::string start = req.get_param_value("start");
     std::string end = req.get_param_value("end");
 
@@ -184,8 +143,52 @@ void get_history(const httplib::Request& req, httplib::Response& res, sqlite3* d
     }
 
     sqlite3_stmt* stmt;
+    const char* sql = "SELECT AVG(temperature) FROM temps WHERE timestamp BETWEEN ? AND ?";
+    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+
+    if (rc != SQLITE_OK) {
+        res.status = 500;
+        res.set_content("{\"error\":\"Database query failed\"}", "application/json");
+        return;
+    }
+
+    sqlite3_bind_text(stmt, 1, start.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, end.c_str(), -1, SQLITE_STATIC);
+
+    int result = sqlite3_step(stmt);
+    
+    if (result == SQLITE_DONE or sqlite3_column_type(stmt, 0) == SQLITE_NULL) {
+        res.status = 404;
+        res.set_content("{\"error\":\"No data available\"}", "application/json");
+    }
+    else if (result == SQLITE_ROW) {
+        double avg_temp = sqlite3_column_double(stmt, 0);
+        std::string json = "{\"temperature\":" + std::to_string(avg_temp) + "}";
+        res.set_content(json, "application/json");
+    }
+    else {
+        res.status = 500;
+        res.set_content("{\"error\":\"Database query failed\"}", "application/json");
+    }
+
+    sqlite3_finalize(stmt);
+}
+
+void get_history(const httplib::Request& req, httplib::Response& res, sqlite3* db) {
+    // Обработчик: все измерения за период
+    std::string start = req.get_param_value("start");
+    std::string end = req.get_param_value("end");
+    
+    if (start.empty() || end.empty()) {
+        res.status = 400;
+        res.set_content("{\"error\":\"Missing 'start' or 'end' parameter\"}", "application/json");
+        return;
+    }
+
+    sqlite3_stmt* stmt;
     const char* sql = "SELECT timestamp, temperature FROM temps WHERE timestamp BETWEEN ? AND ? ORDER BY timestamp";
     int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+
     if (rc != SQLITE_OK) {
         res.status = 500;
         res.set_content("{\"error\":\"Database query failed\"}", "application/json");
