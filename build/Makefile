@@ -154,6 +154,19 @@ emulator/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\emulator.dir\build.make CMakeFiles/emulator.dir/build
 .PHONY : emulator/fast
 
+#=============================================================================
+# Target rules for targets named gui
+
+# Build rule for target.
+gui: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gui
+.PHONY : gui
+
+# fast build rule for target.
+gui/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/build
+.PHONY : gui/fast
+
 emulator.obj: emulator.c.obj
 .PHONY : emulator.obj
 
@@ -177,6 +190,30 @@ emulator.s: emulator.c.s
 emulator.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\emulator.dir\build.make CMakeFiles/emulator.dir/emulator.c.s
 .PHONY : emulator.c.s
+
+gui/gui.obj: gui/gui.cpp.obj
+.PHONY : gui/gui.obj
+
+# target to build an object file
+gui/gui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui/gui.cpp.obj
+.PHONY : gui/gui.cpp.obj
+
+gui/gui.i: gui/gui.cpp.i
+.PHONY : gui/gui.i
+
+# target to preprocess a source file
+gui/gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui/gui.cpp.i
+.PHONY : gui/gui.cpp.i
+
+gui/gui.s: gui/gui.cpp.s
+.PHONY : gui/gui.s
+
+# target to generate assembly for a file
+gui/gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui/gui.cpp.s
+.PHONY : gui/gui.cpp.s
 
 libs/sqlite3.obj: libs/sqlite3.c.obj
 .PHONY : libs/sqlite3.obj
@@ -235,11 +272,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... emulator
+	@echo ... gui
 	@echo ... logger
 	@echo ... sqlite3
 	@echo ... emulator.obj
 	@echo ... emulator.i
 	@echo ... emulator.s
+	@echo ... gui/gui.obj
+	@echo ... gui/gui.i
+	@echo ... gui/gui.s
 	@echo ... libs/sqlite3.obj
 	@echo ... libs/sqlite3.i
 	@echo ... libs/sqlite3.s

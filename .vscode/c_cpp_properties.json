@@ -3,7 +3,10 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/libs/imgui",
+                "${workspaceFolder}/libs/implot",
+                "${workspaceFolder}/libs/glfw/include"
             ],
             "defines": [
                 "_DEBUG",

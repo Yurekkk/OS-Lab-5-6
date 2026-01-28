@@ -6,5 +6,5 @@ C_DEFINES = -DWIN32_LEAN_AND_MEAN -D_WIN32_WINNT=0x0601
 
 C_INCLUDES = @CMakeFiles/emulator.dir/includes_C.rsp
 
-C_FLAGS = 
+C_FLAGS = -g
 

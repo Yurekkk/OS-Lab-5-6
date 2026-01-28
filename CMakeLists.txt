@@ -8,12 +8,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(libs)
 
 add_library(sqlite3 libs/sqlite3.c)
+find_package(OpenGL REQUIRED)
 
 add_executable(logger logger.cpp)
 add_executable(emulator emulator.c)
+add_executable(gui gui/gui.cpp)
 
 target_link_libraries(emulator m)
 target_link_libraries(logger sqlite3)
+target_link_libraries(gui
+    imgui
+    implot
+    glfw
+    OpenGL::GL
+)
 
 if(WIN32)
     # Требуем Windows 7+ API и линкуем Winsock2 для httplib

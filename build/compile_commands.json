@@ -1,0 +1,26 @@
+[
+{
+  "directory": "D:/OS/Lab-5-6/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\gcc.exe -DWIN32_LEAN_AND_MEAN -D_WIN32_WINNT=0x0601 @CMakeFiles/sqlite3.dir/includes_C.rsp -g -o CMakeFiles\\sqlite3.dir\\libs\\sqlite3.c.obj -c D:\\OS\\Lab-5-6\\libs\\sqlite3.c",
+  "file": "D:/OS/Lab-5-6/libs/sqlite3.c",
+  "output": "CMakeFiles/sqlite3.dir/libs/sqlite3.c.obj"
+},
+{
+  "directory": "D:/OS/Lab-5-6/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\G__~1.EXE -DWIN32_LEAN_AND_MEAN -D_WIN32_WINNT=0x0601 @CMakeFiles/logger.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\logger.dir\\logger.cpp.obj -c D:\\OS\\Lab-5-6\\logger.cpp",
+  "file": "D:/OS/Lab-5-6/logger.cpp",
+  "output": "CMakeFiles/logger.dir/logger.cpp.obj"
+},
+{
+  "directory": "D:/OS/Lab-5-6/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\gcc.exe -DWIN32_LEAN_AND_MEAN -D_WIN32_WINNT=0x0601 @CMakeFiles/emulator.dir/includes_C.rsp -g -o CMakeFiles\\emulator.dir\\emulator.c.obj -c D:\\OS\\Lab-5-6\\emulator.c",
+  "file": "D:/OS/Lab-5-6/emulator.c",
+  "output": "CMakeFiles/emulator.dir/emulator.c.obj"
+},
+{
+  "directory": "D:/OS/Lab-5-6/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\G__~1.EXE -DWIN32_LEAN_AND_MEAN -D_WIN32_WINNT=0x0601 @CMakeFiles/gui.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\gui.dir\\gui\\gui.cpp.obj -c D:\\OS\\Lab-5-6\\gui\\gui.cpp",
+  "file": "D:/OS/Lab-5-6/gui/gui.cpp",
+  "output": "CMakeFiles/gui.dir/gui/gui.cpp.obj"
+}
+]
