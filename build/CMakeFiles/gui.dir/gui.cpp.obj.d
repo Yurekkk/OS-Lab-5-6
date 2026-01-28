@@ -1,4 +1,4 @@
-CMakeFiles/gui.dir/gui/gui.cpp.obj: D:\OS\Lab-5-6\gui\gui.cpp \
+CMakeFiles/gui.dir/gui.cpp.obj: D:\OS\Lab-5-6\gui.cpp \
  D:/OS/Lab-5-6/libs/imgui/imgui.h D:/OS/Lab-5-6/libs/imgui/imconfig.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/x86_64-w64-mingw32/include/float.h \

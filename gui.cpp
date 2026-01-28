@@ -24,13 +24,14 @@ std::vector<TemperaturePoint> history;
 bool has_current = false;
 bool has_avg = false;
 bool has_history = false;
+bool user_mode = false;
 
-// Простой парсер JSON для {"temperature": 22.5}
+// Парсер JSON для {"temperature": 22.5}
 double parse_json_temperature(const std::string& json) {
     size_t pos = json.find("\"temperature\":");
     if (pos == std::string::npos) return 0.0;
     
-    pos += 14; // длина "\"temperature\":"
+    pos += 14;
     while (pos < json.size() && (json[pos] == ' ' || json[pos] == '\n')) pos++;
     
     size_t end = json.find_first_not_of("0123456789.-", pos);
@@ -39,7 +40,7 @@ double parse_json_temperature(const std::string& json) {
     return std::stod(json.substr(pos, end - pos));
 }
 
-// Простой парсер JSON-массива для /history
+// Парсер JSON-массива для /history
 std::vector<TemperaturePoint> parse_json_history(const std::string& json) {
     std::vector<TemperaturePoint> result;
     size_t pos = 0;
@@ -83,35 +84,40 @@ void data_fetcher_thread(const std::string& server_url) {
             current_temp = parse_json_temperature(res->body);
             has_current = true;
         }
+
+        if (!user_mode) {
         
-        // История за последний час (для примера)
-        auto now = std::chrono::system_clock::now();
-        auto hour_ago = now - std::chrono::hours(1);
-        
-        auto t_now = std::chrono::system_clock::to_time_t(now);
-        auto t_hour_ago = std::chrono::system_clock::to_time_t(hour_ago);
-        
-        char now_str[20], hour_ago_str[20];
-        strftime(now_str, sizeof(now_str), "%Y-%m-%d %H:%M:%S", localtime(&t_now));
-        strftime(hour_ago_str, sizeof(hour_ago_str), "%Y-%m-%d %H:%M:%S", localtime(&t_hour_ago));
-        
-        std::string url = "/history?start=" + std::string(hour_ago_str) + "&end=" + std::string(now_str);
-        res = cli.Get(url.c_str());
-        if (res && res->status == 200) {
-            std::lock_guard<std::mutex> lock(data_mutex);
-            history = parse_json_history(res->body);
-            has_history = true;
+            // История за последний час
+            auto now = std::chrono::system_clock::now();
+            auto hour_ago = now - std::chrono::hours(1);
+            
+            auto t_now = std::chrono::system_clock::to_time_t(now);
+            auto t_hour_ago = std::chrono::system_clock::to_time_t(hour_ago);
+            
+            char now_str[20], hour_ago_str[20];
+            strftime(now_str, sizeof(now_str), "%Y-%m-%d %H:%M:%S", localtime(&t_now));
+            strftime(hour_ago_str, sizeof(hour_ago_str), "%Y-%m-%d %H:%M:%S", localtime(&t_hour_ago));
+            
+            std::string url = "/history?start=" + std::string(hour_ago_str) + "&end=" + std::string(now_str);
+            res = cli.Get(url.c_str());
+            if (res && res->status == 200) {
+                std::lock_guard<std::mutex> lock(data_mutex);
+                history = parse_json_history(res->body);
+                has_history = true;
+            }
+            
+            // Средняя за период (последний час)
+            res = cli.Get(("/average?start=" + std::string(hour_ago_str) + "&end=" + std::string(now_str)).c_str());
+            if (res && res->status == 200) {
+                std::lock_guard<std::mutex> lock(data_mutex);
+                avg_temp = parse_json_temperature(res->body);
+                has_avg = true;
+            }
+            
         }
-        
-        // Средняя за период (последний час)
-        res = cli.Get(("/average?start=" + std::string(hour_ago_str) + "&end=" + std::string(now_str)).c_str());
-        if (res && res->status == 200) {
-            std::lock_guard<std::mutex> lock(data_mutex);
-            avg_temp = parse_json_temperature(res->body);
-            has_avg = true;
-        }
-        
+
         std::this_thread::sleep_for(std::chrono::seconds(1));
+
     }
 }
 
@@ -122,7 +128,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     
-    GLFWwindow* window = glfwCreateWindow(1024, 768, "Temperature Monitor", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(1280, 720, "Монитор температуры", nullptr, nullptr);
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
     
@@ -133,11 +139,15 @@ int main() {
     ImGuiIO& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     
+    // Задание темы
     ImGui::StyleColorsDark();
-    // Немного синеватая тема
     ImGuiStyle& style = ImGui::GetStyle();
-    style.Colors[ImGuiCol_WindowBg] = ImVec4(0.06f, 0.09f, 0.16f, 1.00f); // #0f172a
-    style.Colors[ImGuiCol_PlotLines] = ImVec4(0.47f, 0.64f, 0.84f, 1.00f);  // #60a5fa
+    style.Colors[ImGuiCol_WindowBg] = ImVec4(32.f / 255.f, 43.f / 255.f, 47.f / 255.f, 1.00f);
+    style.Colors[ImGuiCol_PlotLines] = ImVec4(63.f / 255.f, 175.f / 255.f, 232.f / 255.f, 1.00f);
+
+    // Загружаем шрифт
+    io.Fonts->AddFontFromFileTTF("../libs/Exo2-VariableFont_wght.ttf", 32.0f, nullptr,
+        io.Fonts->GetGlyphRangesCyrillic());
     
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 330");
@@ -159,6 +169,7 @@ int main() {
         ImGui::NewFrame();
         
         // Главное окно
+        ImGui::SetNextWindowSize(ImVec2(1280, 720), ImGuiCond_Once);
         ImGui::Begin("Temperature Monitor", nullptr, ImGuiWindowFlags_NoResize);
         
         // Текущая температура
@@ -166,20 +177,20 @@ int main() {
             std::lock_guard<std::mutex> lock(data_mutex);
             if (has_current) {
                 ImGui::SetWindowFontScale(2.0f);
-                ImGui::Text("Current: %.2f °C", current_temp);
+                ImGui::Text("Текущая температура: %.2f °C", current_temp);
                 ImGui::SetWindowFontScale(1.0f);
             } else {
-                ImGui::Text("Current: -- °C");
+                ImGui::Text("Текущая температура: --.-- °C");
             }
         }
         
         ImGui::Separator();
         
         // Выбор периода
-        ImGui::InputText("Start (YYYY-MM-DD HH:MM:SS)", start_date, sizeof(start_date));
-        ImGui::InputText("End (YYYY-MM-DD HH:MM:SS)", end_date, sizeof(end_date));
+        ImGui::InputText("Начало (ГГГГ.ММ.ДД ЧЧ:ММ:СС)", start_date, sizeof(start_date));
+        ImGui::InputText("Конец (ГГГГ.ММ.ДД ЧЧ:ММ:СС)", end_date, sizeof(end_date));
         
-        if (ImGui::Button("Update")) {
+        if (ImGui::Button("Обновить")) {
             httplib::Client cli("http://localhost:8080");
             
             // Запрос среднего
@@ -197,22 +208,24 @@ int main() {
                 history = parse_json_history(res->body);
                 has_history = true;
             }
+
+            user_mode = true;
         }
         
         // Средняя температура
         {
             std::lock_guard<std::mutex> lock(data_mutex);
             if (has_avg) {
-                ImGui::Text("Average: %.2f °C", avg_temp);
+                ImGui::Text("Средняя температура: %.2f °C", avg_temp);
             } else {
-                ImGui::Text("Average: -- °C");
+                ImGui::Text("Средняя температура: --.-- °C");
             }
         }
         
         ImGui::Separator();
         
         // График
-        if (ImPlot::BeginPlot("Temperature History", ImVec2(-1, 300))) {
+        if (ImPlot::BeginPlot("График температуры", ImVec2(-1, 450))) {
             std::lock_guard<std::mutex> lock(data_mutex);
             if (has_history && !history.empty()) {
                 std::vector<double> xs(history.size());
@@ -224,7 +237,7 @@ int main() {
                     ys[i] = history[i].temperature;
                 }
                 
-                ImPlot::PlotLine("Temp", xs.data(), ys.data(), static_cast<int>(xs.size()));
+                ImPlot::PlotLine("Температура", xs.data(), ys.data(), static_cast<int>(xs.size()));
             }
             ImPlot::EndPlot();
         }

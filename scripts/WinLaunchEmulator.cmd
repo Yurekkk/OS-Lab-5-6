@@ -1,0 +1,1 @@
+..\build\emulator.exe \\.\CNCA0

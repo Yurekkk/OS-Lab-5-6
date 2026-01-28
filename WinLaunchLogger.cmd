@@ -1,1 +1,0 @@
-build\logger.exe \\.\CNCB0

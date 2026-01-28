@@ -1,0 +1,1 @@
+../build_linux/emulator /dev/pts/1

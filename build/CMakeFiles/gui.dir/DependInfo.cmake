@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/OS/Lab-5-6/gui/gui.cpp" "CMakeFiles/gui.dir/gui/gui.cpp.obj" "gcc" "CMakeFiles/gui.dir/gui/gui.cpp.obj.d"
+  "D:/OS/Lab-5-6/gui.cpp" "CMakeFiles/gui.dir/gui.cpp.obj" "gcc" "CMakeFiles/gui.dir/gui.cpp.obj.d"
   "D:/OS/Lab-5-6/libs/imgui/backends/imgui_impl_glfw.cpp" "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj.d"
   "D:/OS/Lab-5-6/libs/imgui/backends/imgui_impl_opengl3.cpp" "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj.d"
   "D:/OS/Lab-5-6/libs/imgui/imgui.cpp" "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj.d"

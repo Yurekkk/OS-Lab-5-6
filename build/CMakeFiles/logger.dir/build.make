@@ -76,15 +76,15 @@ CMakeFiles/logger.dir/logger.cpp.obj: CMakeFiles/logger.dir/includes_CXX.rsp
 CMakeFiles/logger.dir/logger.cpp.obj: D:/OS/Lab-5-6/logger.cpp
 CMakeFiles/logger.dir/logger.cpp.obj: CMakeFiles/logger.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/logger.dir/logger.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/logger.dir/logger.cpp.obj -MF CMakeFiles\logger.dir\logger.cpp.obj.d -o CMakeFiles\logger.dir\logger.cpp.obj -c D:\OS\Lab-5-6\logger.cpp
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/logger.dir/logger.cpp.obj -MF CMakeFiles\logger.dir\logger.cpp.obj.d -o CMakeFiles\logger.dir\logger.cpp.obj -c D:\OS\Lab-5-6\logger.cpp
 
 CMakeFiles/logger.dir/logger.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/logger.dir/logger.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OS\Lab-5-6\logger.cpp > CMakeFiles\logger.dir\logger.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OS\Lab-5-6\logger.cpp > CMakeFiles\logger.dir\logger.cpp.i
 
 CMakeFiles/logger.dir/logger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/logger.dir/logger.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OS\Lab-5-6\logger.cpp -o CMakeFiles\logger.dir\logger.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OS\Lab-5-6\logger.cpp -o CMakeFiles\logger.dir\logger.cpp.s
 
 # Object files for target logger
 logger_OBJECTS = \

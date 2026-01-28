@@ -32,6 +32,8 @@ endif()
 
 
 
+# GUI
+
 set(IMGUI_SOURCES
     libs/imgui/imgui.cpp
     libs/imgui/imgui_demo.cpp
@@ -44,16 +46,12 @@ set(IMGUI_SOURCES
     libs/implot/implot_items.cpp
 )
 
-add_executable(gui gui/gui.cpp ${IMGUI_SOURCES})
+add_executable(gui gui.cpp ${IMGUI_SOURCES})
 
 find_library(GLFW3_LIB glfw3
     PATHS "D:\\OS\\Lab-5-6\\libs\\glfw\\build\\src"
     NO_DEFAULT_PATH
 )
-
-if(NOT GLFW3_LIB)
-    message(FATAL_ERROR "glfw3 не найдена!")
-endif()
 
 # Добавляем исходники ImGui
 target_sources(gui PRIVATE

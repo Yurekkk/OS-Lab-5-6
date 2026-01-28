@@ -81,7 +81,7 @@ FILE* open_serial_port(char* port_name) {
 
 void init_db_maybe(sqlite3** db) {
     // Инициализация БД
-    sqlite3_open("temperature.db", db);
+    sqlite3_open("../temperature.db", db);
     const char* sql = 
         "CREATE TABLE IF NOT EXISTS temps ("
         "timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, "

@@ -191,29 +191,29 @@ emulator.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\emulator.dir\build.make CMakeFiles/emulator.dir/emulator.c.s
 .PHONY : emulator.c.s
 
-gui/gui.obj: gui/gui.cpp.obj
-.PHONY : gui/gui.obj
+gui.obj: gui.cpp.obj
+.PHONY : gui.obj
 
 # target to build an object file
-gui/gui.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui/gui.cpp.obj
-.PHONY : gui/gui.cpp.obj
+gui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui.cpp.obj
+.PHONY : gui.cpp.obj
 
-gui/gui.i: gui/gui.cpp.i
-.PHONY : gui/gui.i
+gui.i: gui.cpp.i
+.PHONY : gui.i
 
 # target to preprocess a source file
-gui/gui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui/gui.cpp.i
-.PHONY : gui/gui.cpp.i
+gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui.cpp.i
+.PHONY : gui.cpp.i
 
-gui/gui.s: gui/gui.cpp.s
-.PHONY : gui/gui.s
+gui.s: gui.cpp.s
+.PHONY : gui.s
 
 # target to generate assembly for a file
-gui/gui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui/gui.cpp.s
-.PHONY : gui/gui.cpp.s
+gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui.cpp.s
+.PHONY : gui.cpp.s
 
 libs/imgui/backends/imgui_impl_glfw.obj: libs/imgui/backends/imgui_impl_glfw.cpp.obj
 .PHONY : libs/imgui/backends/imgui_impl_glfw.obj
@@ -494,9 +494,9 @@ help:
 	@echo ... emulator.obj
 	@echo ... emulator.i
 	@echo ... emulator.s
-	@echo ... gui/gui.obj
-	@echo ... gui/gui.i
-	@echo ... gui/gui.s
+	@echo ... gui.obj
+	@echo ... gui.i
+	@echo ... gui.s
 	@echo ... libs/imgui/backends/imgui_impl_glfw.obj
 	@echo ... libs/imgui/backends/imgui_impl_glfw.i
 	@echo ... libs/imgui/backends/imgui_impl_glfw.s
