@@ -232,8 +232,8 @@ void start_server(sqlite3* db) {
     // Обработчик: все измерения за период
     server.Get("/history", [&](const Request& req, Response& res) {get_history(req, res, db);});
 
-    // Отдача статики (веб-интерфейс)
-    server.set_base_dir("./web");
+    // Веб-интерфейс
+    server.set_base_dir("../web");
 
     // Запуск сервера
     server.listen("0.0.0.0", 8080);

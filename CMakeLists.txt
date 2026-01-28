@@ -46,7 +46,7 @@ set(IMGUI_SOURCES
     libs/implot/implot_items.cpp
 )
 
-add_executable(gui gui.cpp ${IMGUI_SOURCES})
+add_executable(gui gui/gui.cpp ${IMGUI_SOURCES})
 
 find_library(GLFW3_LIB glfw3
     PATHS "D:\\OS\\Lab-5-6\\libs\\glfw\\build\\src"

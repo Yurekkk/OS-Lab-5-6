@@ -71,20 +71,20 @@ include CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/codegen:
 .PHONY : CMakeFiles/gui.dir/codegen
 
-CMakeFiles/gui.dir/gui.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/gui.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/gui.cpp.obj: D:/OS/Lab-5-6/gui.cpp
-CMakeFiles/gui.dir/gui.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gui.dir/gui.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/gui.cpp.obj -MF CMakeFiles\gui.dir\gui.cpp.obj.d -o CMakeFiles\gui.dir\gui.cpp.obj -c D:\OS\Lab-5-6\gui.cpp
+CMakeFiles/gui.dir/gui/gui.cpp.obj: CMakeFiles/gui.dir/flags.make
+CMakeFiles/gui.dir/gui/gui.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
+CMakeFiles/gui.dir/gui/gui.cpp.obj: D:/OS/Lab-5-6/gui/gui.cpp
+CMakeFiles/gui.dir/gui/gui.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gui.dir/gui/gui.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/gui/gui.cpp.obj -MF CMakeFiles\gui.dir\gui\gui.cpp.obj.d -o CMakeFiles\gui.dir\gui\gui.cpp.obj -c D:\OS\Lab-5-6\gui\gui.cpp
 
-CMakeFiles/gui.dir/gui.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/gui.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OS\Lab-5-6\gui.cpp > CMakeFiles\gui.dir\gui.cpp.i
+CMakeFiles/gui.dir/gui/gui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/gui/gui.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OS\Lab-5-6\gui\gui.cpp > CMakeFiles\gui.dir\gui\gui.cpp.i
 
-CMakeFiles/gui.dir/gui.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/gui.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OS\Lab-5-6\gui.cpp -o CMakeFiles\gui.dir\gui.cpp.s
+CMakeFiles/gui.dir/gui/gui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/gui/gui.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OS\Lab-5-6\gui\gui.cpp -o CMakeFiles\gui.dir\gui\gui.cpp.s
 
 CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
@@ -223,7 +223,7 @@ CMakeFiles/gui.dir/libs/implot/implot_items.cpp.s: cmake_force
 
 # Object files for target gui
 gui_OBJECTS = \
-"CMakeFiles/gui.dir/gui.cpp.obj" \
+"CMakeFiles/gui.dir/gui/gui.cpp.obj" \
 "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj" \
 "CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj" \
 "CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj" \
@@ -237,7 +237,7 @@ gui_OBJECTS = \
 # External object files for target gui
 gui_EXTERNAL_OBJECTS =
 
-gui.exe: CMakeFiles/gui.dir/gui.cpp.obj
+gui.exe: CMakeFiles/gui.dir/gui/gui.cpp.obj
 gui.exe: CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj
 gui.exe: CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj
 gui.exe: CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj

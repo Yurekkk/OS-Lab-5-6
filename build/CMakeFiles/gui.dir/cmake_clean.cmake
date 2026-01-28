@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/gui.dir/gui.cpp.obj"
-  "CMakeFiles/gui.dir/gui.cpp.obj.d"
+  "CMakeFiles/gui.dir/gui/gui.cpp.obj"
+  "CMakeFiles/gui.dir/gui/gui.cpp.obj.d"
   "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj"
   "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj.d"
   "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj"

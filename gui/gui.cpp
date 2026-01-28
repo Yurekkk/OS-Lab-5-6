@@ -46,27 +46,42 @@ std::vector<TemperaturePoint> parse_json_history(const std::string& json) {
     size_t pos = 0;
     
     while ((pos = json.find("\"timestamp\":", pos)) != std::string::npos) {
+        size_t end_obj = json.find('}', pos);
+        if (end_obj == std::string::npos) break;
+        
+        std::string obj = json.substr(pos, end_obj - pos + 1);
+        pos = end_obj + 1;
+        
         TemperaturePoint pt;
         
-        // Парсим timestamp
-        pos += 12;
-        size_t start_quote = json.find('"', pos);
-        if (start_quote == std::string::npos) break;
-        size_t end_quote = json.find('"', start_quote + 1);
-        if (end_quote == std::string::npos) break;
-        pt.timestamp = json.substr(start_quote + 1, end_quote - start_quote - 1);
+        // Ищем timestamp
+        size_t ts_start = obj.find("\"timestamp\":\"");
+        if (ts_start != std::string::npos) {
+            ts_start += 13; // длина "\"timestamp\":\""
+            size_t ts_end = obj.find('"', ts_start);
+            if (ts_end != std::string::npos) {
+                pt.timestamp = obj.substr(ts_start, ts_end - ts_start);
+            }
+        }
         
-        // Парсим temperature
-        size_t temp_pos = json.find("\"temperature\":", end_quote);
-        if (temp_pos == std::string::npos) break;
-        temp_pos += 14;
-        while (temp_pos < json.size() && (json[temp_pos] == ' ' || json[temp_pos] == '\n')) temp_pos++;
-        size_t temp_end = json.find_first_not_of("0123456789.-", temp_pos);
-        if (temp_end == std::string::npos) temp_end = json.size();
-        pt.temperature = std::stod(json.substr(temp_pos, temp_end - temp_pos));
-        
-        result.push_back(pt);
-        pos = temp_end;
+        // Ищем temperature
+        size_t temp_start = obj.find("\"temperature\":");
+        if (temp_start != std::string::npos) {
+            temp_start += 14; // длина "\"temperature\":"
+            // Пропускаем пробелы
+            while (temp_start < obj.size() && (obj[temp_start] == ' ' || obj[temp_start] == '\n')) 
+                temp_start++;
+            // Находим конец числа
+            size_t temp_end = temp_start;
+            while (temp_end < obj.size() && 
+                   (isdigit(obj[temp_end]) || obj[temp_end] == '.' || obj[temp_end] == '-')) {
+                temp_end++;
+            }
+            if (temp_end > temp_start) {
+                pt.temperature = std::stod(obj.substr(temp_start, temp_end - temp_start));
+                result.push_back(pt);
+            }
+        }
     }
     
     return result;
@@ -95,9 +110,9 @@ void data_fetcher_thread(const std::string& server_url) {
             auto t_hour_ago = std::chrono::system_clock::to_time_t(hour_ago);
             
             char now_str[20], hour_ago_str[20];
-            strftime(now_str, sizeof(now_str), "%Y-%m-%d %H:%M:%S", localtime(&t_now));
-            strftime(hour_ago_str, sizeof(hour_ago_str), "%Y-%m-%d %H:%M:%S", localtime(&t_hour_ago));
-            
+            strftime(now_str, sizeof(now_str), "%Y-%m-%d %H:%M:%S", gmtime(&t_now));
+            strftime(hour_ago_str, sizeof(hour_ago_str), "%Y-%m-%d %H:%M:%S", gmtime(&t_hour_ago));
+
             std::string url = "/history?start=" + std::string(hour_ago_str) + "&end=" + std::string(now_str);
             res = cli.Get(url.c_str());
             if (res && res->status == 200) {
@@ -157,8 +172,8 @@ int main() {
     fetcher.detach();
     
     // Выбор периода
-    char start_date[20] = "2026-01-25 00:00:00";
-    char end_date[20] = "2026-01-25 23:59:59";
+    char start_date[20] = "2026-01-01 00:00:00";
+    char end_date[20] = "2026-01-31 23:59:59";
     
     // Основной цикл
     while (!glfwWindowShouldClose(window)) {
@@ -170,26 +185,27 @@ int main() {
         
         // Главное окно
         ImGui::SetNextWindowSize(ImVec2(1280, 720), ImGuiCond_Once);
-        ImGui::Begin("Temperature Monitor", nullptr, ImGuiWindowFlags_NoResize);
+        ImGui::Begin("Монитор температуры", nullptr, ImGuiWindowFlags_NoResize);
         
         // Текущая температура
         {
             std::lock_guard<std::mutex> lock(data_mutex);
+            ImGui::SetWindowFontScale(2.0f);
             if (has_current) {
-                ImGui::SetWindowFontScale(2.0f);
                 ImGui::Text("Текущая температура: %.2f °C", current_temp);
-                ImGui::SetWindowFontScale(1.0f);
             } else {
                 ImGui::Text("Текущая температура: --.-- °C");
             }
+            ImGui::SetWindowFontScale(1.0f);
         }
         
         ImGui::Separator();
         
         // Выбор периода
-        ImGui::InputText("Начало (ГГГГ.ММ.ДД ЧЧ:ММ:СС)", start_date, sizeof(start_date));
-        ImGui::InputText("Конец (ГГГГ.ММ.ДД ЧЧ:ММ:СС)", end_date, sizeof(end_date));
+        ImGui::InputText("Начало (ГГГГ-ММ-ДД ЧЧ:ММ:СС)", start_date, sizeof(start_date));
+        ImGui::InputText("Конец (ГГГГ-ММ-ДД ЧЧ:ММ:СС)", end_date, sizeof(end_date));
         
+        // Кнопка обновления
         if (ImGui::Button("Обновить")) {
             httplib::Client cli("http://localhost:8080");
             
@@ -225,20 +241,25 @@ int main() {
         ImGui::Separator();
         
         // График
-        if (ImPlot::BeginPlot("График температуры", ImVec2(-1, 450))) {
+        if (ImPlot::BeginPlot("График температуры", ImVec2(-1, 400))) {
+            // Автомасштабирование
+            ImPlot::SetupAxis(ImAxis_X1, nullptr, ImPlotAxisFlags_AutoFit | ImPlotAxisFlags_NoTickLabels);
+            ImPlot::SetupAxis(ImAxis_Y1, nullptr, ImPlotAxisFlags_AutoFit);
+
             std::lock_guard<std::mutex> lock(data_mutex);
             if (has_history && !history.empty()) {
                 std::vector<double> xs(history.size());
                 std::vector<double> ys(history.size());
                 
-                // Для простоты используем индексы как X (можно парсить время для реального масштаба)
                 for (size_t i = 0; i < history.size(); i++) {
                     xs[i] = static_cast<double>(i);
                     ys[i] = history[i].temperature;
                 }
                 
+                ImPlot::SetNextLineStyle(ImVec4(63.f / 255.f, 175.f / 255.f, 232.f / 255.f, 1.00f), 2.5f);
                 ImPlot::PlotLine("Температура", xs.data(), ys.data(), static_cast<int>(xs.size()));
             }
+
             ImPlot::EndPlot();
         }
         
