@@ -9,6 +9,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/OS/Lab-5-6/gui/gui.cpp" "CMakeFiles/gui.dir/gui/gui.cpp.obj" "gcc" "CMakeFiles/gui.dir/gui/gui.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/imgui/backends/imgui_impl_glfw.cpp" "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/imgui/backends/imgui_impl_opengl3.cpp" "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/imgui/imgui.cpp" "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/imgui/imgui_demo.cpp" "CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/imgui/imgui_draw.cpp" "CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/imgui/imgui_tables.cpp" "CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/imgui/imgui_widgets.cpp" "CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/implot/implot.cpp" "CMakeFiles/gui.dir/libs/implot/implot.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/implot/implot.cpp.obj.d"
+  "D:/OS/Lab-5-6/libs/implot/implot_items.cpp" "CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj" "gcc" "CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

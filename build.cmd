@@ -16,7 +16,10 @@ mkdir "%BUILD_DIR%"
 cd /d "%BUILD_DIR%"
 
 rem Генерация проекта (определение компилятора, путей к библиотекам и т. д.)
-cmake -G "MinGW Makefiles" ..
+cmake -G "MinGW Makefiles" ^
+    -DCMAKE_C_COMPILER=gcc ^
+    -DCMAKE_CXX_COMPILER=g++ ^
+    ..
 
 rem Сборка проекта (компиляция)
 mingw32-make -j4

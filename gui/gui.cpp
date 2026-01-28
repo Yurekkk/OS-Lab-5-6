@@ -3,7 +3,7 @@
 #include <imgui_impl_opengl3.h>
 #include <implot.h>
 #include <GLFW/glfw3.h>
-#include "../libs/httplib.h"
+#include <httplib.h>
 #include <string>
 #include <vector>
 #include <chrono>
@@ -212,7 +212,7 @@ int main() {
         ImGui::Separator();
         
         // График
-        if (ImPlot::BeginPlot("Temperature History", "Time", "°C", ImVec2(-1, 300))) {
+        if (ImPlot::BeginPlot("Temperature History", ImVec2(-1, 300))) {
             std::lock_guard<std::mutex> lock(data_mutex);
             if (has_history && !history.empty()) {
                 std::vector<double> xs(history.size());

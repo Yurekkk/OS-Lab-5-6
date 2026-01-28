@@ -1,1 +1,1 @@
--I"D:/OS/Lab-5-6/libs"
+-I"D:/OS/Lab-5-6/libs" -I"D:/OS/Lab-5-6/libs/imgui" -I"D:/OS/Lab-5-6/libs/imgui/backends" -I"D:/OS/Lab-5-6/libs/implot" -I"D:/OS/Lab-5-6/libs/glfw/include" -I"D:/OS/Lab-5-6/libs/glfw/build/src"

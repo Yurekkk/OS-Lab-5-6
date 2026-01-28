@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/libs/imgui",
+                "${workspaceFolder}/libs/imgui/backends",
                 "${workspaceFolder}/libs/implot",
                 "${workspaceFolder}/libs/glfw/include"
             ],

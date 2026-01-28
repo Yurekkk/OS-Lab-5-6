@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/OS/Lab-5-6/libs/glfw/build/cmake_install.cmake",
+		"D:/OS/Lab-5-6/libs/glfw/build/src/cmake_install.cmake",
+		"D:/OS/Lab-5-6/libs/glfw/build/examples/cmake_install.cmake",
+		"D:/OS/Lab-5-6/libs/glfw/build/tests/cmake_install.cmake",
+		"D:/OS/Lab-5-6/libs/glfw/build/docs/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,1 +1,1 @@
- -limgui -limplot -lglfw -lopengl32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ "D:/OS/Lab-5-6/libs/glfw/build/src/libglfw3.a" -lopengl32 -lgdi32 -lopengl32 -lwinmm -lws2_32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
