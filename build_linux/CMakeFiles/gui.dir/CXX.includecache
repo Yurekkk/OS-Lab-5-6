@@ -330,26 +330,6 @@ assert.h
 imgui_user.h
 /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_user.h
 
-/home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_demo.cpp
-imgui.h
-/home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui.h
-ctype.h
--
-limits.h
--
-math.h
--
-stdio.h
--
-stdlib.h
--
-stdint.h
--
-inttypes.h
--
-emscripten/version.h
--
-
 /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_draw.cpp
 imgui.h
 /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui.h

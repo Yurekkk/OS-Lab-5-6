@@ -102,18 +102,18 @@ void data_fetcher_thread(const std::string& server_url) {
 
         if (!user_mode) {
         
-            // История за последний час
+            // История за последнюю минуту
             auto now = std::chrono::system_clock::now();
-            auto hour_ago = now - std::chrono::hours(1);
+            auto minute_ago = now - std::chrono::minutes(1);
             
             auto t_now = std::chrono::system_clock::to_time_t(now);
-            auto t_hour_ago = std::chrono::system_clock::to_time_t(hour_ago);
+            auto t_minute_ago = std::chrono::system_clock::to_time_t(minute_ago);
             
-            char now_str[20], hour_ago_str[20];
+            char now_str[20], minute_ago_str[20];
             strftime(now_str, sizeof(now_str), "%Y-%m-%d %H:%M:%S", gmtime(&t_now));
-            strftime(hour_ago_str, sizeof(hour_ago_str), "%Y-%m-%d %H:%M:%S", gmtime(&t_hour_ago));
+            strftime(minute_ago_str, sizeof(minute_ago_str), "%Y-%m-%d %H:%M:%S", gmtime(&t_minute_ago));
 
-            std::string url = "/history?start=" + std::string(hour_ago_str) + "&end=" + std::string(now_str);
+            std::string url = "/history?start=" + std::string(minute_ago_str) + "&end=" + std::string(now_str);
             res = cli.Get(url.c_str());
             if (res && res->status == 200) {
                 std::lock_guard<std::mutex> lock(data_mutex);
@@ -121,8 +121,8 @@ void data_fetcher_thread(const std::string& server_url) {
                 has_history = true;
             }
             
-            // Средняя за период (последний час)
-            res = cli.Get(("/average?start=" + std::string(hour_ago_str) + "&end=" + std::string(now_str)).c_str());
+            // Средняя за последнюю минуту
+            res = cli.Get(("/average?start=" + std::string(minute_ago_str) + "&end=" + std::string(now_str)).c_str());
             if (res && res->status == 200) {
                 std::lock_guard<std::mutex> lock(data_mutex);
                 avg_temp = parse_json_temperature(res->body);

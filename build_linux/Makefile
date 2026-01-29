@@ -297,33 +297,6 @@ libs/imgui/imgui.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui.cpp.s
 .PHONY : libs/imgui/imgui.cpp.s
 
-libs/imgui/imgui_demo.o: libs/imgui/imgui_demo.cpp.o
-
-.PHONY : libs/imgui/imgui_demo.o
-
-# target to build an object file
-libs/imgui/imgui_demo.cpp.o:
-	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o
-.PHONY : libs/imgui/imgui_demo.cpp.o
-
-libs/imgui/imgui_demo.i: libs/imgui/imgui_demo.cpp.i
-
-.PHONY : libs/imgui/imgui_demo.i
-
-# target to preprocess a source file
-libs/imgui/imgui_demo.cpp.i:
-	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.i
-.PHONY : libs/imgui/imgui_demo.cpp.i
-
-libs/imgui/imgui_demo.s: libs/imgui/imgui_demo.cpp.s
-
-.PHONY : libs/imgui/imgui_demo.s
-
-# target to generate assembly for a file
-libs/imgui/imgui_demo.cpp.s:
-	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.s
-.PHONY : libs/imgui/imgui_demo.cpp.s
-
 libs/imgui/imgui_draw.o: libs/imgui/imgui_draw.cpp.o
 
 .PHONY : libs/imgui/imgui_draw.o
@@ -540,9 +513,6 @@ help:
 	@echo "... libs/imgui/imgui.o"
 	@echo "... libs/imgui/imgui.i"
 	@echo "... libs/imgui/imgui.s"
-	@echo "... libs/imgui/imgui_demo.o"
-	@echo "... libs/imgui/imgui_demo.i"
-	@echo "... libs/imgui/imgui_demo.s"
 	@echo "... libs/imgui/imgui_draw.o"
 	@echo "... libs/imgui/imgui_draw.i"
 	@echo "... libs/imgui/imgui_draw.s"

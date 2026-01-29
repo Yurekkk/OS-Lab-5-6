@@ -25,10 +25,6 @@ CMakeFiles/gui.dir/libs/imgui/imgui.cpp.o: ../libs/imgui/imgui.cpp
 CMakeFiles/gui.dir/libs/imgui/imgui.cpp.o: ../libs/imgui/imgui.h
 CMakeFiles/gui.dir/libs/imgui/imgui.cpp.o: ../libs/imgui/imgui_internal.h
 
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o: ../libs/imgui/imconfig.h
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o: ../libs/imgui/imgui.h
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o: ../libs/imgui/imgui_demo.cpp
-
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o: ../libs/imgui/imconfig.h
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o: ../libs/imgui/imgui.h
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o: ../libs/imgui/imgui_draw.cpp

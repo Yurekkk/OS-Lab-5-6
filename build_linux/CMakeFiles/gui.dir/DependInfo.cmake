@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/knight5016/OS/OS-Lab-5-6/libs/imgui/backends/imgui_impl_glfw.cpp" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.o"
   "/home/knight5016/OS/OS-Lab-5-6/libs/imgui/backends/imgui_impl_opengl3.cpp" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.o"
   "/home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui.cpp" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/gui.dir/libs/imgui/imgui.cpp.o"
-  "/home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_demo.cpp" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o"
   "/home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_draw.cpp" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o"
   "/home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_tables.cpp" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o"
   "/home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_widgets.cpp" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o"

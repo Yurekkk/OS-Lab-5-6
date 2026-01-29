@@ -83,22 +83,9 @@ CMakeFiles/gui.dir/libs/imgui/imgui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gui.dir/libs/imgui/imgui.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui.cpp -o CMakeFiles/gui.dir/libs/imgui/imgui.cpp.s
 
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o: ../libs/imgui/imgui_demo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o -c /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_demo.cpp
-
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_demo.cpp > CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.i
-
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_demo.cpp -o CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.s
-
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o: ../libs/imgui/imgui_draw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o -c /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_draw.cpp
 
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.i: cmake_force
@@ -111,7 +98,7 @@ CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.s: cmake_force
 
 CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o: ../libs/imgui/imgui_tables.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o -c /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_tables.cpp
 
 CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.i: cmake_force
@@ -124,7 +111,7 @@ CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.s: cmake_force
 
 CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o: ../libs/imgui/imgui_widgets.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o -c /home/knight5016/OS/OS-Lab-5-6/libs/imgui/imgui_widgets.cpp
 
 CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.i: cmake_force
@@ -137,7 +124,7 @@ CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.s: cmake_force
 
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.o: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.o: ../libs/imgui/backends/imgui_impl_glfw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.o -c /home/knight5016/OS/OS-Lab-5-6/libs/imgui/backends/imgui_impl_glfw.cpp
 
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.i: cmake_force
@@ -150,7 +137,7 @@ CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.s: cmake_force
 
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.o: ../libs/imgui/backends/imgui_impl_opengl3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.o -c /home/knight5016/OS/OS-Lab-5-6/libs/imgui/backends/imgui_impl_opengl3.cpp
 
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.i: cmake_force
@@ -163,7 +150,7 @@ CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.s: cmake_force
 
 CMakeFiles/gui.dir/libs/implot/implot.cpp.o: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/implot/implot.cpp.o: ../libs/implot/implot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/gui.dir/libs/implot/implot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/gui.dir/libs/implot/implot.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gui.dir/libs/implot/implot.cpp.o -c /home/knight5016/OS/OS-Lab-5-6/libs/implot/implot.cpp
 
 CMakeFiles/gui.dir/libs/implot/implot.cpp.i: cmake_force
@@ -176,7 +163,7 @@ CMakeFiles/gui.dir/libs/implot/implot.cpp.s: cmake_force
 
 CMakeFiles/gui.dir/libs/implot/implot_items.cpp.o: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/implot/implot_items.cpp.o: ../libs/implot/implot_items.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/gui.dir/libs/implot/implot_items.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/gui.dir/libs/implot/implot_items.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gui.dir/libs/implot/implot_items.cpp.o -c /home/knight5016/OS/OS-Lab-5-6/libs/implot/implot_items.cpp
 
 CMakeFiles/gui.dir/libs/implot/implot_items.cpp.i: cmake_force
@@ -191,7 +178,6 @@ CMakeFiles/gui.dir/libs/implot/implot_items.cpp.s: cmake_force
 gui_OBJECTS = \
 "CMakeFiles/gui.dir/gui/gui.cpp.o" \
 "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.o" \
-"CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o" \
 "CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o" \
 "CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o" \
 "CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o" \
@@ -205,7 +191,6 @@ gui_EXTERNAL_OBJECTS =
 
 gui: CMakeFiles/gui.dir/gui/gui.cpp.o
 gui: CMakeFiles/gui.dir/libs/imgui/imgui.cpp.o
-gui: CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o
 gui: CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o
 gui: CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o
 gui: CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o
@@ -217,7 +202,7 @@ gui: CMakeFiles/gui.dir/build.make
 gui: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 gui: /usr/lib/x86_64-linux-gnu/libGL.so
 gui: CMakeFiles/gui.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable gui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable gui"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gui.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
