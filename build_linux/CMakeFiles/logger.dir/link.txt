@@ -1,1 +1,1 @@
-/usr/bin/gcc    CMakeFiles/logger.dir/logger.c.o  -o logger 
+/usr/bin/g++     CMakeFiles/logger.dir/logger.cpp.o  -o logger  libsqlite3.a -lpthread -ldl 

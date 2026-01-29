@@ -1,19 +1,24 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "C"
+  "CXX"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_C
-  "/home/knight5016/OS/OS-Lab-4/logger.c" "/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/logger.dir/logger.c.o"
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/knight5016/OS/OS-Lab-5-6/logger.cpp" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/logger.dir/logger.cpp.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
-set(CMAKE_C_TARGET_INCLUDE_PATH
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../libs"
+  "../libs/imgui"
+  "../libs/imgui/backends"
+  "../libs/implot"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/sqlite3.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

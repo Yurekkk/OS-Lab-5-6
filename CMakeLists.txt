@@ -10,18 +10,19 @@ include_directories(
     libs/imgui
     libs/imgui/backends
     libs/implot
-    libs/glfw/include
-    libs/glfw/build/src
 )
 
 add_library(sqlite3 libs/sqlite3.c)
-find_package(OpenGL REQUIRED)
 
 add_executable(logger logger.cpp)
 add_executable(emulator emulator.c)
 
 target_link_libraries(emulator m)
-target_link_libraries(logger sqlite3)
+target_link_libraries(logger 
+    sqlite3
+    pthread
+    dl
+)
 
 if(WIN32)
     # Требуем Windows 7+ API и линкуем Winsock2 для httplib
@@ -34,7 +35,25 @@ endif()
 
 # GUI
 
-set(IMGUI_SOURCES
+add_executable(gui gui/gui.cpp)
+find_package(OpenGL REQUIRED)
+
+# Поиск и линковка GLFW (кроссплатформенное окно + ввод)
+if(WIN32)
+    find_library(GLFW3_LIB glfw3
+        PATHS "${CMAKE_CURRENT_SOURCE_DIR}/libs/glfw/build/src"
+        NO_DEFAULT_PATH
+    )
+    target_link_libraries(gui ${GLFW3_LIB} OpenGL::GL)
+endif()
+
+if(UNIX AND NOT APPLE)
+    find_package(glfw3 REQUIRED)
+    target_link_libraries(gui glfw OpenGL::GL)
+endif()
+
+# Добавляем исходники ImGui
+target_sources(gui PRIVATE
     libs/imgui/imgui.cpp
     libs/imgui/imgui_demo.cpp
     libs/imgui/imgui_draw.cpp
@@ -46,36 +65,27 @@ set(IMGUI_SOURCES
     libs/implot/implot_items.cpp
 )
 
-add_executable(gui gui/gui.cpp ${IMGUI_SOURCES})
-
-find_library(GLFW3_LIB glfw3
-    PATHS "D:\\OS\\Lab-5-6\\libs\\glfw\\build\\src"
-    NO_DEFAULT_PATH
-)
-
-# Добавляем исходники ImGui
-target_sources(gui PRIVATE
-    libs/imgui/imgui.cpp
-    libs/imgui/imgui_draw.cpp
-    libs/imgui/imgui_widgets.cpp
-    libs/imgui/backends/imgui_impl_glfw.cpp
-    libs/imgui/backends/imgui_impl_opengl3.cpp
-)
-
-# Добавляем исходники ImPlot
+# Добавляем исходники ImPlot (графики и визуализация временных рядов)
 target_sources(gui PRIVATE
     libs/implot/implot.cpp
     libs/implot/implot_items.cpp
 )
 
-target_link_libraries(gui
-    ${GLFW3_LIB}
-    OpenGL::GL
-    gdi32 
-    opengl32 
-    winmm
-)
-
+# Линковка системных библиотек
 if(WIN32)
-    target_link_libraries(gui ws2_32)
+    target_link_libraries(gui 
+        ws2_32
+        gdi32 
+        opengl32 
+        winmm
+    )
+endif()
+
+if(UNIX AND NOT APPLE)
+    target_link_libraries(gui 
+        X11
+        dl
+        pthread
+        rt
+    )
 endif()

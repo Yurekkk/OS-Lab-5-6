@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/logger.dir/logger.c.o"
+  "CMakeFiles/logger.dir/logger.cpp.o"
   "logger"
   "logger.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang C)
+foreach(lang CXX)
   include(CMakeFiles/logger.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

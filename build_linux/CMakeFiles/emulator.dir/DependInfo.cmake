@@ -4,12 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/knight5016/OS/OS-Lab-4/emulator.c" "/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/emulator.dir/emulator.c.o"
+  "/home/knight5016/OS/OS-Lab-5-6/emulator.c" "/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/emulator.dir/emulator.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../libs"
+  "../libs/imgui"
+  "../libs/imgui/backends"
+  "../libs/implot"
   )
 
 # Targets to which this target links.

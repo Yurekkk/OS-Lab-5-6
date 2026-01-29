@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/knight5016/OS/OS-Lab-4/emulator.c
+/home/knight5016/OS/OS-Lab-5-6/emulator.c
 stdio.h
 -
 stdlib.h

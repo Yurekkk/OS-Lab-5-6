@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/knight5016/OS/OS-Lab-4
+CMAKE_SOURCE_DIR = /home/knight5016/OS/OS-Lab-5-6
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/knight5016/OS/OS-Lab-4/build_linux
+CMAKE_BINARY_DIR = /home/knight5016/OS/OS-Lab-5-6/build_linux
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles /home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles /home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named gui
+
+# Build rule for target.
+gui: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gui
+.PHONY : gui
+
+# fast build rule for target.
+gui/fast:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/build
+.PHONY : gui/fast
+
+#=============================================================================
 # Target rules for targets named emulator
 
 # Build rule for target.
@@ -135,6 +148,19 @@ logger: cmake_check_build_system
 logger/fast:
 	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/build
 .PHONY : logger/fast
+
+#=============================================================================
+# Target rules for targets named sqlite3
+
+# Build rule for target.
+sqlite3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sqlite3
+.PHONY : sqlite3
+
+# fast build rule for target.
+sqlite3/fast:
+	$(MAKE) -f CMakeFiles/sqlite3.dir/build.make CMakeFiles/sqlite3.dir/build
+.PHONY : sqlite3/fast
 
 emulator.o: emulator.c.o
 
@@ -163,32 +189,329 @@ emulator.c.s:
 	$(MAKE) -f CMakeFiles/emulator.dir/build.make CMakeFiles/emulator.dir/emulator.c.s
 .PHONY : emulator.c.s
 
-logger.o: logger.c.o
+gui/gui.o: gui/gui.cpp.o
+
+.PHONY : gui/gui.o
+
+# target to build an object file
+gui/gui.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/gui/gui.cpp.o
+.PHONY : gui/gui.cpp.o
+
+gui/gui.i: gui/gui.cpp.i
+
+.PHONY : gui/gui.i
+
+# target to preprocess a source file
+gui/gui.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/gui/gui.cpp.i
+.PHONY : gui/gui.cpp.i
+
+gui/gui.s: gui/gui.cpp.s
+
+.PHONY : gui/gui.s
+
+# target to generate assembly for a file
+gui/gui.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/gui/gui.cpp.s
+.PHONY : gui/gui.cpp.s
+
+libs/imgui/backends/imgui_impl_glfw.o: libs/imgui/backends/imgui_impl_glfw.cpp.o
+
+.PHONY : libs/imgui/backends/imgui_impl_glfw.o
+
+# target to build an object file
+libs/imgui/backends/imgui_impl_glfw.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.o
+.PHONY : libs/imgui/backends/imgui_impl_glfw.cpp.o
+
+libs/imgui/backends/imgui_impl_glfw.i: libs/imgui/backends/imgui_impl_glfw.cpp.i
+
+.PHONY : libs/imgui/backends/imgui_impl_glfw.i
+
+# target to preprocess a source file
+libs/imgui/backends/imgui_impl_glfw.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.i
+.PHONY : libs/imgui/backends/imgui_impl_glfw.cpp.i
+
+libs/imgui/backends/imgui_impl_glfw.s: libs/imgui/backends/imgui_impl_glfw.cpp.s
+
+.PHONY : libs/imgui/backends/imgui_impl_glfw.s
+
+# target to generate assembly for a file
+libs/imgui/backends/imgui_impl_glfw.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.s
+.PHONY : libs/imgui/backends/imgui_impl_glfw.cpp.s
+
+libs/imgui/backends/imgui_impl_opengl3.o: libs/imgui/backends/imgui_impl_opengl3.cpp.o
+
+.PHONY : libs/imgui/backends/imgui_impl_opengl3.o
+
+# target to build an object file
+libs/imgui/backends/imgui_impl_opengl3.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.o
+.PHONY : libs/imgui/backends/imgui_impl_opengl3.cpp.o
+
+libs/imgui/backends/imgui_impl_opengl3.i: libs/imgui/backends/imgui_impl_opengl3.cpp.i
+
+.PHONY : libs/imgui/backends/imgui_impl_opengl3.i
+
+# target to preprocess a source file
+libs/imgui/backends/imgui_impl_opengl3.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.i
+.PHONY : libs/imgui/backends/imgui_impl_opengl3.cpp.i
+
+libs/imgui/backends/imgui_impl_opengl3.s: libs/imgui/backends/imgui_impl_opengl3.cpp.s
+
+.PHONY : libs/imgui/backends/imgui_impl_opengl3.s
+
+# target to generate assembly for a file
+libs/imgui/backends/imgui_impl_opengl3.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.s
+.PHONY : libs/imgui/backends/imgui_impl_opengl3.cpp.s
+
+libs/imgui/imgui.o: libs/imgui/imgui.cpp.o
+
+.PHONY : libs/imgui/imgui.o
+
+# target to build an object file
+libs/imgui/imgui.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui.cpp.o
+.PHONY : libs/imgui/imgui.cpp.o
+
+libs/imgui/imgui.i: libs/imgui/imgui.cpp.i
+
+.PHONY : libs/imgui/imgui.i
+
+# target to preprocess a source file
+libs/imgui/imgui.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui.cpp.i
+.PHONY : libs/imgui/imgui.cpp.i
+
+libs/imgui/imgui.s: libs/imgui/imgui.cpp.s
+
+.PHONY : libs/imgui/imgui.s
+
+# target to generate assembly for a file
+libs/imgui/imgui.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui.cpp.s
+.PHONY : libs/imgui/imgui.cpp.s
+
+libs/imgui/imgui_demo.o: libs/imgui/imgui_demo.cpp.o
+
+.PHONY : libs/imgui/imgui_demo.o
+
+# target to build an object file
+libs/imgui/imgui_demo.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.o
+.PHONY : libs/imgui/imgui_demo.cpp.o
+
+libs/imgui/imgui_demo.i: libs/imgui/imgui_demo.cpp.i
+
+.PHONY : libs/imgui/imgui_demo.i
+
+# target to preprocess a source file
+libs/imgui/imgui_demo.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.i
+.PHONY : libs/imgui/imgui_demo.cpp.i
+
+libs/imgui/imgui_demo.s: libs/imgui/imgui_demo.cpp.s
+
+.PHONY : libs/imgui/imgui_demo.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_demo.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.s
+.PHONY : libs/imgui/imgui_demo.cpp.s
+
+libs/imgui/imgui_draw.o: libs/imgui/imgui_draw.cpp.o
+
+.PHONY : libs/imgui/imgui_draw.o
+
+# target to build an object file
+libs/imgui/imgui_draw.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.o
+.PHONY : libs/imgui/imgui_draw.cpp.o
+
+libs/imgui/imgui_draw.i: libs/imgui/imgui_draw.cpp.i
+
+.PHONY : libs/imgui/imgui_draw.i
+
+# target to preprocess a source file
+libs/imgui/imgui_draw.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.i
+.PHONY : libs/imgui/imgui_draw.cpp.i
+
+libs/imgui/imgui_draw.s: libs/imgui/imgui_draw.cpp.s
+
+.PHONY : libs/imgui/imgui_draw.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_draw.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.s
+.PHONY : libs/imgui/imgui_draw.cpp.s
+
+libs/imgui/imgui_tables.o: libs/imgui/imgui_tables.cpp.o
+
+.PHONY : libs/imgui/imgui_tables.o
+
+# target to build an object file
+libs/imgui/imgui_tables.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.o
+.PHONY : libs/imgui/imgui_tables.cpp.o
+
+libs/imgui/imgui_tables.i: libs/imgui/imgui_tables.cpp.i
+
+.PHONY : libs/imgui/imgui_tables.i
+
+# target to preprocess a source file
+libs/imgui/imgui_tables.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.i
+.PHONY : libs/imgui/imgui_tables.cpp.i
+
+libs/imgui/imgui_tables.s: libs/imgui/imgui_tables.cpp.s
+
+.PHONY : libs/imgui/imgui_tables.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_tables.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.s
+.PHONY : libs/imgui/imgui_tables.cpp.s
+
+libs/imgui/imgui_widgets.o: libs/imgui/imgui_widgets.cpp.o
+
+.PHONY : libs/imgui/imgui_widgets.o
+
+# target to build an object file
+libs/imgui/imgui_widgets.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.o
+.PHONY : libs/imgui/imgui_widgets.cpp.o
+
+libs/imgui/imgui_widgets.i: libs/imgui/imgui_widgets.cpp.i
+
+.PHONY : libs/imgui/imgui_widgets.i
+
+# target to preprocess a source file
+libs/imgui/imgui_widgets.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.i
+.PHONY : libs/imgui/imgui_widgets.cpp.i
+
+libs/imgui/imgui_widgets.s: libs/imgui/imgui_widgets.cpp.s
+
+.PHONY : libs/imgui/imgui_widgets.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_widgets.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.s
+.PHONY : libs/imgui/imgui_widgets.cpp.s
+
+libs/implot/implot.o: libs/implot/implot.cpp.o
+
+.PHONY : libs/implot/implot.o
+
+# target to build an object file
+libs/implot/implot.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/implot/implot.cpp.o
+.PHONY : libs/implot/implot.cpp.o
+
+libs/implot/implot.i: libs/implot/implot.cpp.i
+
+.PHONY : libs/implot/implot.i
+
+# target to preprocess a source file
+libs/implot/implot.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/implot/implot.cpp.i
+.PHONY : libs/implot/implot.cpp.i
+
+libs/implot/implot.s: libs/implot/implot.cpp.s
+
+.PHONY : libs/implot/implot.s
+
+# target to generate assembly for a file
+libs/implot/implot.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/implot/implot.cpp.s
+.PHONY : libs/implot/implot.cpp.s
+
+libs/implot/implot_items.o: libs/implot/implot_items.cpp.o
+
+.PHONY : libs/implot/implot_items.o
+
+# target to build an object file
+libs/implot/implot_items.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/implot/implot_items.cpp.o
+.PHONY : libs/implot/implot_items.cpp.o
+
+libs/implot/implot_items.i: libs/implot/implot_items.cpp.i
+
+.PHONY : libs/implot/implot_items.i
+
+# target to preprocess a source file
+libs/implot/implot_items.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/implot/implot_items.cpp.i
+.PHONY : libs/implot/implot_items.cpp.i
+
+libs/implot/implot_items.s: libs/implot/implot_items.cpp.s
+
+.PHONY : libs/implot/implot_items.s
+
+# target to generate assembly for a file
+libs/implot/implot_items.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/libs/implot/implot_items.cpp.s
+.PHONY : libs/implot/implot_items.cpp.s
+
+libs/sqlite3.o: libs/sqlite3.c.o
+
+.PHONY : libs/sqlite3.o
+
+# target to build an object file
+libs/sqlite3.c.o:
+	$(MAKE) -f CMakeFiles/sqlite3.dir/build.make CMakeFiles/sqlite3.dir/libs/sqlite3.c.o
+.PHONY : libs/sqlite3.c.o
+
+libs/sqlite3.i: libs/sqlite3.c.i
+
+.PHONY : libs/sqlite3.i
+
+# target to preprocess a source file
+libs/sqlite3.c.i:
+	$(MAKE) -f CMakeFiles/sqlite3.dir/build.make CMakeFiles/sqlite3.dir/libs/sqlite3.c.i
+.PHONY : libs/sqlite3.c.i
+
+libs/sqlite3.s: libs/sqlite3.c.s
+
+.PHONY : libs/sqlite3.s
+
+# target to generate assembly for a file
+libs/sqlite3.c.s:
+	$(MAKE) -f CMakeFiles/sqlite3.dir/build.make CMakeFiles/sqlite3.dir/libs/sqlite3.c.s
+.PHONY : libs/sqlite3.c.s
+
+logger.o: logger.cpp.o
 
 .PHONY : logger.o
 
 # target to build an object file
-logger.c.o:
-	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/logger.c.o
-.PHONY : logger.c.o
+logger.cpp.o:
+	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/logger.cpp.o
+.PHONY : logger.cpp.o
 
-logger.i: logger.c.i
+logger.i: logger.cpp.i
 
 .PHONY : logger.i
 
 # target to preprocess a source file
-logger.c.i:
-	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/logger.c.i
-.PHONY : logger.c.i
+logger.cpp.i:
+	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/logger.cpp.i
+.PHONY : logger.cpp.i
 
-logger.s: logger.c.s
+logger.s: logger.cpp.s
 
 .PHONY : logger.s
 
 # target to generate assembly for a file
-logger.c.s:
-	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/logger.c.s
-.PHONY : logger.c.s
+logger.cpp.s:
+	$(MAKE) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/logger.cpp.s
+.PHONY : logger.cpp.s
 
 # Help Target
 help:
@@ -198,11 +521,46 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... gui"
 	@echo "... emulator"
 	@echo "... logger"
+	@echo "... sqlite3"
 	@echo "... emulator.o"
 	@echo "... emulator.i"
 	@echo "... emulator.s"
+	@echo "... gui/gui.o"
+	@echo "... gui/gui.i"
+	@echo "... gui/gui.s"
+	@echo "... libs/imgui/backends/imgui_impl_glfw.o"
+	@echo "... libs/imgui/backends/imgui_impl_glfw.i"
+	@echo "... libs/imgui/backends/imgui_impl_glfw.s"
+	@echo "... libs/imgui/backends/imgui_impl_opengl3.o"
+	@echo "... libs/imgui/backends/imgui_impl_opengl3.i"
+	@echo "... libs/imgui/backends/imgui_impl_opengl3.s"
+	@echo "... libs/imgui/imgui.o"
+	@echo "... libs/imgui/imgui.i"
+	@echo "... libs/imgui/imgui.s"
+	@echo "... libs/imgui/imgui_demo.o"
+	@echo "... libs/imgui/imgui_demo.i"
+	@echo "... libs/imgui/imgui_demo.s"
+	@echo "... libs/imgui/imgui_draw.o"
+	@echo "... libs/imgui/imgui_draw.i"
+	@echo "... libs/imgui/imgui_draw.s"
+	@echo "... libs/imgui/imgui_tables.o"
+	@echo "... libs/imgui/imgui_tables.i"
+	@echo "... libs/imgui/imgui_tables.s"
+	@echo "... libs/imgui/imgui_widgets.o"
+	@echo "... libs/imgui/imgui_widgets.i"
+	@echo "... libs/imgui/imgui_widgets.s"
+	@echo "... libs/implot/implot.o"
+	@echo "... libs/implot/implot.i"
+	@echo "... libs/implot/implot.s"
+	@echo "... libs/implot/implot_items.o"
+	@echo "... libs/implot/implot_items.i"
+	@echo "... libs/implot/implot_items.s"
+	@echo "... libs/sqlite3.o"
+	@echo "... libs/sqlite3.i"
+	@echo "... libs/sqlite3.s"
 	@echo "... logger.o"
 	@echo "... logger.i"
 	@echo "... logger.s"

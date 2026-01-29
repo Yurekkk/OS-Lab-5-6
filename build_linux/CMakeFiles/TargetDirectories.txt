@@ -1,4 +1,6 @@
-/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/rebuild_cache.dir
-/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/edit_cache.dir
-/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/emulator.dir
-/home/knight5016/OS/OS-Lab-4/build_linux/CMakeFiles/logger.dir
+/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/rebuild_cache.dir
+/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/edit_cache.dir
+/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/gui.dir
+/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/emulator.dir
+/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/logger.dir
+/home/knight5016/OS/OS-Lab-5-6/build_linux/CMakeFiles/sqlite3.dir
