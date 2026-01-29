@@ -18,17 +18,20 @@ add_executable(logger logger.cpp)
 add_executable(emulator emulator.c)
 
 target_link_libraries(emulator m)
-target_link_libraries(logger 
-    sqlite3
-    pthread
-    dl
-)
+target_link_libraries(logger sqlite3)
 
 if(WIN32)
     # Требуем Windows 7+ API и линкуем Winsock2 для httplib
     add_definitions(-D_WIN32_WINNT=0x0A00)
     add_definitions(-DWIN32_LEAN_AND_MEAN)
     target_link_libraries(logger ws2_32)
+endif()
+
+if(UNIX AND NOT APPLE)
+    target_link_libraries(logger 
+        pthread
+        dl
+    )
 endif()
 
 
@@ -40,6 +43,10 @@ find_package(OpenGL REQUIRED)
 
 # Поиск и линковка GLFW (кроссплатформенное окно + ввод)
 if(WIN32)
+    include_directories(
+        libs/glfw/include
+        libs/glfw/build/src
+    )
     find_library(GLFW3_LIB glfw3
         PATHS "${CMAKE_CURRENT_SOURCE_DIR}/libs/glfw/build/src"
         NO_DEFAULT_PATH
@@ -55,7 +62,6 @@ endif()
 # Добавляем исходники ImGui
 target_sources(gui PRIVATE
     libs/imgui/imgui.cpp
-    libs/imgui/imgui_demo.cpp
     libs/imgui/imgui_draw.cpp
     libs/imgui/imgui_tables.cpp
     libs/imgui/imgui_widgets.cpp

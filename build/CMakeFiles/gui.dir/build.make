@@ -101,26 +101,11 @@ CMakeFiles/gui.dir/libs/imgui/imgui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/libs/imgui/imgui.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OS\Lab-5-6\libs\imgui\imgui.cpp -o CMakeFiles\gui.dir\libs\imgui\imgui.cpp.s
 
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj: D:/OS/Lab-5-6/libs/imgui/imgui_demo.cpp
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj -MF CMakeFiles\gui.dir\libs\imgui\imgui_demo.cpp.obj.d -o CMakeFiles\gui.dir\libs\imgui\imgui_demo.cpp.obj -c D:\OS\Lab-5-6\libs\imgui\imgui_demo.cpp
-
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\OS\Lab-5-6\libs\imgui\imgui_demo.cpp > CMakeFiles\gui.dir\libs\imgui\imgui_demo.cpp.i
-
-CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\OS\Lab-5-6\libs\imgui\imgui_demo.cpp -o CMakeFiles\gui.dir\libs\imgui\imgui_demo.cpp.s
-
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj: D:/OS/Lab-5-6/libs/imgui/imgui_draw.cpp
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj -MF CMakeFiles\gui.dir\libs\imgui\imgui_draw.cpp.obj.d -o CMakeFiles\gui.dir\libs\imgui\imgui_draw.cpp.obj -c D:\OS\Lab-5-6\libs\imgui\imgui_draw.cpp
 
 CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.i: cmake_force
@@ -135,7 +120,7 @@ CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj: CMakeFiles/gui.dir/flags.mak
 CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
 CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj: D:/OS/Lab-5-6/libs/imgui/imgui_tables.cpp
 CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj -MF CMakeFiles\gui.dir\libs\imgui\imgui_tables.cpp.obj.d -o CMakeFiles\gui.dir\libs\imgui\imgui_tables.cpp.obj -c D:\OS\Lab-5-6\libs\imgui\imgui_tables.cpp
 
 CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.i: cmake_force
@@ -150,7 +135,7 @@ CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/flags.ma
 CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
 CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj: D:/OS/Lab-5-6/libs/imgui/imgui_widgets.cpp
 CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj -MF CMakeFiles\gui.dir\libs\imgui\imgui_widgets.cpp.obj.d -o CMakeFiles\gui.dir\libs\imgui\imgui_widgets.cpp.obj -c D:\OS\Lab-5-6\libs\imgui\imgui_widgets.cpp
 
 CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.i: cmake_force
@@ -165,7 +150,7 @@ CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.d
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj: D:/OS/Lab-5-6/libs/imgui/backends/imgui_impl_glfw.cpp
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj -MF CMakeFiles\gui.dir\libs\imgui\backends\imgui_impl_glfw.cpp.obj.d -o CMakeFiles\gui.dir\libs\imgui\backends\imgui_impl_glfw.cpp.obj -c D:\OS\Lab-5-6\libs\imgui\backends\imgui_impl_glfw.cpp
 
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_glfw.cpp.i: cmake_force
@@ -180,7 +165,7 @@ CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CMakeFiles/gu
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: D:/OS/Lab-5-6/libs/imgui/backends/imgui_impl_opengl3.cpp
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj -MF CMakeFiles\gui.dir\libs\imgui\backends\imgui_impl_opengl3.cpp.obj.d -o CMakeFiles\gui.dir\libs\imgui\backends\imgui_impl_opengl3.cpp.obj -c D:\OS\Lab-5-6\libs\imgui\backends\imgui_impl_opengl3.cpp
 
 CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.i: cmake_force
@@ -195,7 +180,7 @@ CMakeFiles/gui.dir/libs/implot/implot.cpp.obj: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/libs/implot/implot.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
 CMakeFiles/gui.dir/libs/implot/implot.cpp.obj: D:/OS/Lab-5-6/libs/implot/implot.cpp
 CMakeFiles/gui.dir/libs/implot/implot.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/gui.dir/libs/implot/implot.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/gui.dir/libs/implot/implot.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/libs/implot/implot.cpp.obj -MF CMakeFiles\gui.dir\libs\implot\implot.cpp.obj.d -o CMakeFiles\gui.dir\libs\implot\implot.cpp.obj -c D:\OS\Lab-5-6\libs\implot\implot.cpp
 
 CMakeFiles/gui.dir/libs/implot/implot.cpp.i: cmake_force
@@ -210,7 +195,7 @@ CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj: CMakeFiles/gui.dir/flags.ma
 CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
 CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj: D:/OS/Lab-5-6/libs/implot/implot_items.cpp
 CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/libs/implot/implot_items.cpp.obj -MF CMakeFiles\gui.dir\libs\implot\implot_items.cpp.obj.d -o CMakeFiles\gui.dir\libs\implot\implot_items.cpp.obj -c D:\OS\Lab-5-6\libs\implot\implot_items.cpp
 
 CMakeFiles/gui.dir/libs/implot/implot_items.cpp.i: cmake_force
@@ -225,7 +210,6 @@ CMakeFiles/gui.dir/libs/implot/implot_items.cpp.s: cmake_force
 gui_OBJECTS = \
 "CMakeFiles/gui.dir/gui/gui.cpp.obj" \
 "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj" \
-"CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj" \
 "CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj" \
 "CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj" \
 "CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj" \
@@ -239,7 +223,6 @@ gui_EXTERNAL_OBJECTS =
 
 gui.exe: CMakeFiles/gui.dir/gui/gui.cpp.obj
 gui.exe: CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj
-gui.exe: CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj
 gui.exe: CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj
 gui.exe: CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj
 gui.exe: CMakeFiles/gui.dir/libs/imgui/imgui_widgets.cpp.obj
@@ -252,7 +235,7 @@ gui.exe: D:/OS/Lab-5-6/libs/glfw/build/src/libglfw3.a
 gui.exe: CMakeFiles/gui.dir/linkLibs.rsp
 gui.exe: CMakeFiles/gui.dir/objects1.rsp
 gui.exe: CMakeFiles/gui.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable gui.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\OS\Lab-5-6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable gui.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\gui.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

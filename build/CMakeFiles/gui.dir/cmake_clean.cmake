@@ -7,8 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/gui.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj.d"
   "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj"
   "CMakeFiles/gui.dir/libs/imgui/imgui.cpp.obj.d"
-  "CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj"
-  "CMakeFiles/gui.dir/libs/imgui/imgui_demo.cpp.obj.d"
   "CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj"
   "CMakeFiles/gui.dir/libs/imgui/imgui_draw.cpp.obj.d"
   "CMakeFiles/gui.dir/libs/imgui/imgui_tables.cpp.obj"
